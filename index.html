@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLapp | Learn words deeply</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="LLapp home">
+          <span class="brand-mark">L</span>
+          <span>LLapp</span>
+        </a>
+        <div class="streak" aria-label="Current streak">
+          <span>🔥</span>
+          <strong id="streakValue">4</strong>
+          <span>day streak</span>
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <div>
+          <p class="eyebrow" id="heroLevel">English · Beginner</p>
+          <h1>Learn one word from every angle.</h1>
+          <p class="hero-copy">
+            Hear it, say it, connect its family, and use it in real sentences.
+          </p>
+        </div>
+        <div class="progress-card">
+          <div class="progress-label">
+            <span>Today’s progress</span>
+            <strong id="progressText">2 / 5 words</strong>
+          </div>
+          <div class="progress-track">
+            <span id="progressBar"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="learning-plan" aria-label="Lesson plan">
+        <div class="plan-heading">
+          <div>
+            <span class="eyebrow">Evidence-informed practice</span>
+            <h2>One short lesson, four useful steps</h2>
+          </div>
+          <span class="review-due" id="reviewDue">0 due for review</span>
+        </div>
+        <div class="plan-steps">
+          <span class="plan-step active"><b>1</b> Notice</span>
+          <span class="plan-line"></span>
+          <span class="plan-step"><b>2</b> Recall</span>
+          <span class="plan-line"></span>
+          <span class="plan-step"><b>3</b> Use it</span>
+          <span class="plan-line"></span>
+          <span class="plan-step"><b>4</b> Review later</span>
+        </div>
+        <p class="plan-goal" id="planGoal">Goal: understand the word, recall it without help, and use it in a real sentence.</p>
+      </section>
+
+      <section class="library-toolbar" aria-label="Learning library controls">
+        <div>
+          <span class="eyebrow">Your learning library</span>
+          <h2>Choose what you want to practice</h2>
+          <p class="library-summary" id="librarySummary"></p>
+        </div>
+        <label class="level-picker">
+          <span>Level</span>
+          <select id="levelSelect">
+            <option value="beginner">Beginner · A1</option>
+            <option value="elementary">Elementary · A2</option>
+            <option value="intermediate">Intermediate · B1</option>
+            <option value="upper">Upper-intermediate · B2</option>
+          </select>
+        </label>
+      </section>
+
+      <nav class="content-tabs" aria-label="Learning content">
+        <button class="content-tab active" data-content="vocabulary" type="button">Vocabulary</button>
+        <button class="content-tab" data-content="phrasal-verbs" type="button">Phrasal verbs</button>
+        <button class="content-tab" data-content="situations" type="button">Situations</button>
+        <button class="content-tab" data-content="idioms" type="button">Idioms</button>
+        <button class="content-tab" data-content="abbreviations" type="button">Abbreviations</button>
+        <button class="content-tab" data-content="small-talk" type="button">Small talk</button>
+        <button class="content-tab" data-content="speak-practice" type="button">Speak practice</button>
+        <button class="content-tab" data-content="activities" type="button">Activities</button>
+      </nav>
+
+      <section class="lesson-layout" aria-label="Vocabulary lesson">
+        <article class="word-card">
+          <div class="word-header">
+            <div>
+              <span class="tag">Practice word</span>
+              <h2 id="word">careful</h2>
+              <p class="pronunciation" id="pronunciation">/ˈker.fəl/</p>
+            </div>
+            <button class="icon-button" id="saveButton" type="button" aria-label="Save word">♡</button>
+          </div>
+
+          <div class="word-picker">
+            <label for="wordSelect">Choose a word</label>
+            <select id="wordSelect"></select>
+          </div>
+
+          <div class="visual-word" id="visualWord" aria-label="Visual association for this word"></div>
+
+          <div class="definition">
+            <span class="part-of-speech" id="partOfSpeech">adjective</span>
+            <p id="definitionText">Giving attention to avoid mistakes, danger, or harm.</p>
+          </div>
+
+          <div class="translation-preview">
+            <label for="languageSelect">Your language</label>
+            <select id="languageSelect">
+              <option value="fr">French</option>
+              <option value="es">Spanish</option>
+              <option value="vi">Vietnamese</option>
+              <option value="fa">Dari</option>
+              <option value="ko">Korean</option>
+              <option value="de">German</option>
+              <option value="ar">Arabic</option>
+              <option value="pt">Portuguese</option>
+              <option value="zh">Chinese</option>
+            </select>
+            <strong id="wordTranslation"></strong>
+          </div>
+
+          <div class="audio-row">
+            <button class="primary-button" id="listenButton" type="button">
+              <span>▶</span> Listen
+            </button>
+            <button class="secondary-button" id="recordButton" type="button">
+              <span>●</span> Practice pronunciation
+            </button>
+          </div>
+          <p class="feedback" id="pronunciationFeedback" role="status"></p>
+
+          <div class="mastery-row">
+            <span>How did this word feel?</span>
+            <button class="mastery-button" id="practiceAgainButton" type="button">Practice again</button>
+            <button class="mastery-button mastery-known" id="knownButton" type="button">I know it</button>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <section>
+            <div class="section-heading">
+              <h3>Word family</h3>
+              <span>Build connections</span>
+            </div>
+            <div class="family-list" id="familyList"></div>
+          </section>
+
+          <section>
+            <div class="section-heading">
+              <h3>Use it in context</h3>
+              <span id="sentenceCount">3 examples</span>
+            </div>
+            <div class="sentences" id="sentences"></div>
+          </section>
+        </article>
+
+        <aside class="practice-card">
+          <div class="practice-heading">
+            <span class="practice-icon">✦</span>
+            <div>
+              <p class="eyebrow">Quick practice</p>
+              <h2>Complete the sentence</h2>
+            </div>
+          </div>
+          <p class="question" id="question"></p>
+          <div class="answer-row">
+            <input id="answerInput" type="text" autocomplete="off" placeholder="Type the missing word" />
+            <button class="primary-button" id="checkButton" type="button">Check</button>
+          </div>
+          <p class="feedback" id="answerFeedback" role="status"></p>
+
+          <div class="next-word">
+            <div>
+              <span class="eyebrow">Next up</span>
+              <strong id="nextWord">carefully</strong>
+            </div>
+            <button class="round-button" id="nextButton" type="button" aria-label="Choose next word">→</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="resource-panel" id="resourcePanel" aria-live="polite"></section>
+
+      <footer>
+        <span>LLapp</span>
+        <span>Learn deeply. Speak confidently.</span>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
