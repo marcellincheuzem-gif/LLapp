@@ -16,6 +16,13 @@ For the best experience:
 - Allow audio playback for pronunciation and sentence listening.
 - Add the page to the home screen from the browser menu.
 
+After the GitHub Pages deployment finishes, open:
+`https://marcellincheuzem-gif.github.io/LLapp/`
+
+In Chrome on Android, tap the three-dot menu and choose **Add to Home screen**
+or **Install app**. If the option does not appear, open the link in a regular
+browser tab (not an in-app browser), refresh once, and try again.
+
 ## Run locally
 
 Open `index.html` in a modern browser. No build step or backend is required.

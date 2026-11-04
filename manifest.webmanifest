@@ -1,0 +1,19 @@
+{
+  "name": "LLapp | Learn words deeply",
+  "short_name": "LLapp",
+  "description": "A deeper English-learning app for vocabulary, pronunciation, phrases, and speaking practice.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8ff",
+  "theme_color": "#6d5dfc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
