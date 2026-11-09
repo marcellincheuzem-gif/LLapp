@@ -6,6 +6,9 @@ phrasal verbs, idioms, abbreviations, translation, and speaking practice.
 
 It also includes a placement test that recommends a starting level and an
 offline English verb conjugator with tense examples and practice.
+
+Each level now includes 50 phrasal verbs, plus a level-specific Academic Words
+section with definitions and example sentences.
 It also includes an offline Conjugator tab for regular and common irregular
 verbs, with key forms, major tense examples, audio buttons, and quick practice.
 

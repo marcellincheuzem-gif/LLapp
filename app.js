@@ -651,6 +651,144 @@ const levelResources = {
   }
 };
 
+const extraPhrasalVerbs = {
+  beginner: [
+    ["stand up", "rise to your feet", "Please stand up."], ["come back", "return", "Come back soon."],
+    ["go back", "return to a place", "I go back home at five."], ["turn on", "start a machine or light", "Turn on the light."],
+    ["turn off", "stop a machine or light", "Turn off the TV."], ["put on", "dress in clothing", "Put on your coat."],
+    ["take off", "remove clothing", "Take off your shoes."], ["look at", "watch or examine", "Look at this picture."],
+    ["listen to", "pay attention to sound", "Listen to the teacher."], ["wait for", "stay until someone or something comes", "Wait for me."],
+    ["ask for", "request something", "Ask for help."], ["help out", "help someone", "Can you help me out?"],
+    ["clean up", "make a place clean", "Clean up your room."], ["hurry up", "move faster", "Hurry up or we will be late."],
+    ["slow down", "move less quickly", "Slow down near the school."], ["write down", "record in writing", "Write down the address."],
+    ["read over", "read quickly to check", "Read over your answer."], ["fill in", "complete a form", "Fill in your name."],
+    ["log in", "enter a computer account", "Log in to the website."], ["log out", "leave a computer account", "Log out after class."],
+    ["call back", "return a phone call", "I will call you back."], ["hang up", "end a phone call", "Please do not hang up."],
+    ["speak up", "talk more loudly", "Please speak up."], ["calm down", "become calmer", "Take a breath and calm down."],
+    ["cheer up", "become happier", "Cheer up; the weekend is near."], ["grow up", "become an adult", "I grew up in a small town."],
+    ["look out", "be careful", "Look out! The car is coming."], ["move in", "start living in a place", "They moved in last week."],
+    ["move out", "leave a home", "We move out on Friday."], ["come over", "visit someone at home", "Come over after dinner."],
+    ["drop off", "take someone or something somewhere", "I will drop off the parcel."], ["get off", "leave a bus or train", "Get off at the next stop."],
+    ["get up", "leave your bed", "I get up early."], ["lie down", "rest horizontally", "Lie down for a few minutes."],
+    ["try out", "test something", "Try out this new game."], ["give back", "return something", "Please give back my pen."],
+    ["give away", "give something for free", "They give away old books."], ["put away", "return something to its place", "Put away your toys."],
+    ["throw away", "put in the rubbish", "Throw away the empty bottle."], ["wash up", "wash dishes or yourself", "I wash up after dinner."],
+    ["eat out", "eat in a restaurant", "We eat out on Saturday."], ["stay in", "remain at home", "Let us stay in tonight."],
+    ["check in", "arrive and register", "We check in at two."], ["check out", "leave a hotel", "We check out tomorrow."],
+    ["show up", "arrive or appear", "He showed up late."], ["join in", "participate", "Come and join in."]
+  ],
+  elementary: [
+    ["look after", "take care of", "She looks after her younger brother."], ["look forward to", "feel excited about a future event", "I look forward to the holiday."],
+    ["get along with", "have a good relationship", "I get along with my coworkers."], ["get back", "return", "What time did you get back?"],
+    ["get through", "finish or survive something", "We got through the difficult week."], ["find out", "discover information", "I need to find out the opening time."],
+    ["fill out", "complete a form", "Please fill out this application."], ["hand in", "give work to a teacher", "Hand in your homework tomorrow."],
+    ["hand out", "give to each person", "The teacher handed out the worksheets."], ["put off", "delay", "Do not put off your revision."],
+    ["take back", "return something", "I took the shoes back to the shop."], ["take up", "begin a hobby or activity", "She took up painting."],
+    ["take over", "assume control", "A new manager took over."], ["turn up", "increase volume or arrive", "Turn up the music."],
+    ["turn down", "decrease volume or reject", "Please turn down the radio."], ["turn around", "change direction", "Turn around at the corner."],
+    ["break down", "stop working", "Our car broke down."], ["break up", "end a relationship", "They broke up last month."],
+    ["bring up", "mention a topic", "She brought up an important point."], ["bring back", "return something", "This song brings back memories."],
+    ["carry on", "continue", "Please carry on with your work."], ["carry out", "complete a task", "They carried out the plan."],
+    ["come across", "find by chance", "I came across an old photo."], ["come up with", "think of an idea", "He came up with a solution."],
+    ["cut down on", "reduce", "I am cutting down on coffee."], ["cut off", "stop a supply or connection", "The storm cut off the village."],
+    ["deal with", "handle a problem", "We need to deal with this complaint."], ["end up", "finally be in a place or situation", "We ended up taking the bus."],
+    ["fall behind", "fail to stay up to date", "I fell behind in my reading."], ["fall over", "fall to the ground", "He fell over on the ice."],
+    ["get rid of", "remove or discard", "We need to get rid of these boxes."], ["give up", "stop trying", "Do not give up."],
+    ["go ahead", "start or continue", "Go ahead and ask your question."], ["go over", "review or examine", "Let us go over the notes."],
+    ["hold on", "wait", "Hold on a moment."], ["keep up", "continue at the same speed", "Keep up with the class."],
+    ["leave out", "omit", "Do not leave out the date."], ["make up", "invent or reconcile", "They made up after the argument."],
+    ["pass away", "die", "Her grandfather passed away peacefully."], ["pick out", "choose", "Pick out a present."],
+    ["point out", "draw attention to", "He pointed out a mistake."], ["put up with", "tolerate", "I cannot put up with the noise."],
+    ["run into", "meet unexpectedly", "I ran into an old friend."], ["set up", "arrange or prepare", "We set up the equipment."],
+    ["sort out", "solve or organize", "We will sort out the problem."], ["work out", "solve or exercise", "I worked out the answer."]
+  ],
+  intermediate: [
+    ["back up", "support or make a copy", "Back up your files regularly."], ["blow up", "explode or become angry", "The argument blew up quickly."],
+    ["break into", "enter by force", "Someone broke into the office."], ["bring about", "cause to happen", "The reform brought about change."],
+    ["call off", "cancel", "They called off the match."], ["catch up on", "do something missed", "I need to catch up on my reading."],
+    ["check up on", "make sure someone is well", "I called to check up on her."], ["come down with", "become ill", "He came down with flu."],
+    ["come up against", "face a difficulty", "We came up against strong opposition."], ["count on", "rely on", "You can count on me."],
+    ["crack down on", "act strictly against", "The city cracked down on illegal parking."], ["do away with", "abolish", "They did away with the old rule."],
+    ["draw up", "prepare a formal document", "The lawyers drew up a contract."], ["drop out", "leave a course", "He dropped out of university."],
+    ["fall apart", "break into pieces or fail", "The old plan fell apart."], ["get away with", "avoid punishment", "He got away with the mistake."],
+    ["get by", "manage with difficulty", "We can get by on a small budget."], ["get down to", "start serious work", "Let us get down to business."],
+    ["give in", "stop resisting", "They finally gave in."], ["go through", "experience or examine", "We went through the documents."],
+    ["hold back", "restrain", "She held back her opinion."], ["iron out", "resolve difficulties", "We ironed out the final details."],
+    ["keep on", "continue", "He kept on working."], ["lay off", "dismiss from a job", "The company laid off workers."],
+    ["live up to", "meet expectations", "The film lived up to its reviews."], ["look down on", "consider inferior", "Never look down on others."],
+    ["look up to", "admire", "Many students look up to their teacher."], ["make up for", "compensate for", "Extra practice made up for lost time."],
+    ["narrow down", "reduce choices", "We narrowed down the options."], ["opt for", "choose", "She opted for a cheaper plan."],
+    ["phase out", "remove gradually", "The factory phased out old equipment."], ["play down", "make seem less important", "The report played down the risk."],
+    ["pull through", "recover from difficulty", "The patient pulled through."], ["put forward", "suggest", "He put forward a useful proposal."],
+    ["rule out", "exclude as impossible", "We cannot rule out that possibility."], ["settle down", "become calm or stable", "The discussion settled down."],
+    ["stand for", "represent or mean", "What does this abbreviation stand for?"], ["step down", "resign from a position", "The director stepped down."],
+    ["take on", "accept work or responsibility", "She took on a new role."], ["take up on", "accept an offer", "I will take you up on that offer."],
+    ["think over", "consider carefully", "Think over the proposal."], ["track down", "find after searching", "We tracked down the missing file."],
+    ["turn out", "prove to be", "The event turned out well."], ["use up", "consume all", "We used up the supplies."],
+    ["wind up", "finish or end", "The meeting wound up at six."], ["zero in on", "focus closely", "The study zeros in on inequality."]
+  ],
+  upper: [
+    ["account for", "explain or make up a proportion", "These factors account for the difference."], ["act on", "take action because of", "The committee acted on the recommendation."],
+    ["allow for", "consider or include", "The budget allows for unexpected costs."], ["boil down to", "be essentially about", "The debate boils down to trust."],
+    ["branch out", "develop new activities", "The company branched out into education."], ["build on", "develop further", "The paper builds on earlier research."],
+    ["call for", "require or demand", "The situation calls for patience."], ["center on", "focus on", "The analysis centers on access."],
+    ["come down to", "be reduced to", "The decision comes down to evidence."], ["comply with", "act according to a rule", "All suppliers must comply with the policy."],
+    ["conform to", "follow a standard", "The design conforms to safety standards."], ["consist of", "be composed of", "The sample consists of three groups."],
+    ["delve into", "research deeply", "The chapter delves into social change."], ["differentiate between", "show a difference", "The model differentiates between causes."],
+    ["draw on", "use as a source", "The author draws on historical records."], ["embark on", "start a significant activity", "They embarked on a long-term study."],
+    ["factor in", "include in calculations", "We must factor in inflation."], ["follow up on", "investigate further", "The team followed up on the finding."],
+    ["give rise to", "cause", "The policy gave rise to new concerns."], ["hinge on", "depend completely on", "The outcome hinges on funding."],
+    ["impose on", "force an obligation", "The rule imposes costs on small firms."], ["infer from", "reach a conclusion from evidence", "We can infer from the data that demand rose."],
+    ["invoke", "refer to a rule or authority", "The court invoked constitutional principles."], ["lead to", "result in", "Poor planning can lead to delays."],
+    ["map out", "plan in detail", "The researchers mapped out the stages."], ["measure up to", "be good enough", "The results measured up to expectations."],
+    ["open up", "create access or opportunity", "The program opened up new possibilities."], ["originate from", "come from", "The concept originated from fieldwork."],
+    ["pass on", "transfer or communicate", "Please pass on the message."], ["pin down", "define precisely", "The study pins down the main variable."],
+    ["prop up", "support artificially", "The subsidy propped up the industry."], ["rest on", "depend on", "The argument rests on two assumptions."],
+    ["stem from", "originate in", "The disagreement stems from different priorities."], ["subscribe to", "agree with an idea", "The authors subscribe to this theory."],
+    ["sum up", "state the main points", "The conclusion sums up the evidence."], ["take over from", "replace someone", "A new chair took over from her."],
+    ["tie in with", "connect with", "The results tie in with previous research."], ["touch on", "mention briefly", "The lecture touched on ethics."],
+    ["translate into", "result in a practical form", "The findings translate into better policy."], ["turn to", "begin to use or consult", "The team turned to experts."],
+    ["weigh up", "consider carefully", "We weighed up the risks."], ["wind down", "gradually end", "The project is winding down."],
+    ["work toward", "make progress toward", "They are working toward equality."], ["write off", "dismiss as worthless or cancel a debt", "Do not write off the proposal yet."],
+    ["yield to", "give way to", "The old method yielded to a better approach."], ["zero in on", "focus precisely on", "The paper zeros in on one mechanism."]
+  ]
+};
+
+Object.entries(extraPhrasalVerbs).forEach(([level, items]) => {
+  levelResources[level].phrasal = [...levelResources[level].phrasal, ...items];
+});
+
+const academicWords = {
+  beginner: [
+    ["answer", "a response to a question", "Write a clear answer."], ["example", "something that shows an idea", "Give one example."],
+    ["fact", "information known to be true", "Check the fact."], ["idea", "a thought or plan", "Share your idea."],
+    ["method", "a way of doing something", "This method is simple."], ["reason", "a cause or explanation", "Give a reason."],
+    ["result", "what happens after an action", "The result was positive."], ["topic", "the subject being discussed", "Today’s topic is travel."],
+    ["question", "something asked to get information", "Ask a question."], ["explain", "make an idea clear", "Please explain the answer."]
+  ],
+  elementary: [
+    ["advantage", "a helpful benefit", "The main advantage is speed."], ["approach", "a way of dealing with something", "We need a new approach."],
+    ["compare", "examine similarities and differences", "Compare the two results."], ["conclude", "decide after considering evidence", "We can conclude that it worked."],
+    ["context", "the situation around an idea", "The word changes meaning in context."], ["define", "state the exact meaning", "Define the key term."],
+    ["evidence", "information supporting a claim", "The evidence is strong."], ["factor", "something that influences a result", "Cost is an important factor."],
+    ["indicate", "show or suggest", "The figures indicate growth."], ["principle", "a basic rule or belief", "The principle is easy to understand."]
+  ],
+  intermediate: [
+    ["analyse", "examine in detail", "Analyse the survey responses."], ["assess", "judge the quality or importance", "Assess the risks first."],
+    ["assume", "accept as true without proof", "Do not assume the cause."], ["concept", "an abstract idea", "The concept is difficult."],
+    ["contribute", "help to cause or produce", "Several factors contribute to success."], ["derive", "obtain from a source", "The term is derived from Latin."],
+    ["establish", "prove or set up firmly", "The study establishes a link."], ["evaluate", "judge using evidence", "Evaluate the proposed solution."],
+    ["hypothesis", "a testable explanation", "The results support the hypothesis."], ["significant", "important or meaningful", "There was a significant change."]
+  ],
+  upper: [
+    ["ambiguous", "having more than one possible meaning", "The wording is ambiguous."], ["coherent", "logical and well connected", "The argument is coherent."],
+    ["comprehensive", "including all or nearly all details", "The review is comprehensive."], ["contemporary", "belonging to the present time", "The article discusses contemporary issues."],
+    ["empirical", "based on observation or experiment", "The claim needs empirical support."], ["implicit", "suggested but not directly stated", "The assumption is implicit."],
+    ["inherent", "existing as a natural part", "The method has inherent limits."], ["methodology", "a system of methods used in research", "The methodology is clearly described."],
+    ["paradigm", "a model or pattern of thought", "The discovery changed the paradigm."], ["subsequent", "following in time or order", "Subsequent studies confirmed the result."]
+  ]
+};
+
 function currentLevelResources(type) {
   return levelResources[$("#levelSelect").value]?.[type] || [];
 }
@@ -1181,7 +1319,14 @@ function renderResources(type) {
   }
   if (type === "phrasal-verbs") {
     const level = $("#levelSelect").selectedOptions[0].text;
-    panel.innerHTML = `<span class="eyebrow">Everyday English · ${level}</span><h2>Phrasal verbs for your level</h2><p class="resource-intro">These verb combinations are selected for your current level.</p>${renderResourceGrid(currentLevelResources("phrasal"), "Meaning", true)}`;
+    const phrasalItems = currentLevelResources("phrasal");
+    panel.innerHTML = `<span class="eyebrow">Everyday English · ${level}</span><h2>Phrasal verbs for your level</h2><p class="resource-intro">Learn 50 phrasal verbs selected for your current level.</p><div class="resource-count">${phrasalItems.length} phrasal verbs</div>${renderResourceGrid(phrasalItems, "Meaning", true)}`;
+    return;
+  }
+  if (type === "academic-words") {
+    const level = $("#levelSelect").selectedOptions[0].text;
+    const items = academicWords[$("#levelSelect").value] || [];
+    panel.innerHTML = `<span class="eyebrow">Study and academic English · ${level}</span><h2>Academic words for your level</h2><p class="resource-intro">Use these words to discuss ideas, evidence, research, and explanations more clearly.</p>${renderResourceGrid(items, "Meaning", true)}`;
     return;
   }
   if (type === "situations") {
