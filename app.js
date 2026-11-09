@@ -655,6 +655,214 @@ function currentLevelResources(type) {
   return levelResources[$("#levelSelect").value]?.[type] || [];
 }
 
+const irregularVerbForms = {
+  be: ["is", "was", "been", "being"],
+  become: ["becomes", "became", "become", "becoming"],
+  begin: ["begins", "began", "begun", "beginning"],
+  break: ["breaks", "broke", "broken", "breaking"],
+  bring: ["brings", "brought", "brought", "bringing"],
+  build: ["builds", "built", "built", "building"],
+  buy: ["buys", "bought", "bought", "buying"],
+  catch: ["catches", "caught", "caught", "catching"],
+  choose: ["chooses", "chose", "chosen", "choosing"],
+  come: ["comes", "came", "come", "coming"],
+  cost: ["costs", "cost", "cost", "costing"],
+  cut: ["cuts", "cut", "cut", "cutting"],
+  do: ["does", "did", "done", "doing"],
+  drink: ["drinks", "drank", "drunk", "drinking"],
+  drive: ["drives", "drove", "driven", "driving"],
+  eat: ["eats", "ate", "eaten", "eating"],
+  feel: ["feels", "felt", "felt", "feeling"],
+  find: ["finds", "found", "found", "finding"],
+  fly: ["flies", "flew", "flown", "flying"],
+  forget: ["forgets", "forgot", "forgotten", "forgetting"],
+  get: ["gets", "got", "gotten", "getting"],
+  give: ["gives", "gave", "given", "giving"],
+  go: ["goes", "went", "gone", "going"],
+  grow: ["grows", "grew", "grown", "growing"],
+  have: ["has", "had", "had", "having"],
+  hear: ["hears", "heard", "heard", "hearing"],
+  keep: ["keeps", "kept", "kept", "keeping"],
+  know: ["knows", "knew", "known", "knowing"],
+  leave: ["leaves", "left", "left", "leaving"],
+  lose: ["loses", "lost", "lost", "losing"],
+  make: ["makes", "made", "made", "making"],
+  mean: ["means", "meant", "meant", "meaning"],
+  meet: ["meets", "met", "met", "meeting"],
+  pay: ["pays", "paid", "paid", "paying"],
+  put: ["puts", "put", "put", "putting"],
+  read: ["reads", "read", "read", "reading"],
+  ride: ["rides", "rode", "ridden", "riding"],
+  run: ["runs", "ran", "run", "running"],
+  say: ["says", "said", "said", "saying"],
+  see: ["sees", "saw", "seen", "seeing"],
+  sell: ["sells", "sold", "sold", "selling"],
+  send: ["sends", "sent", "sent", "sending"],
+  sing: ["sings", "sang", "sung", "singing"],
+  sit: ["sits", "sat", "sat", "sitting"],
+  sleep: ["sleeps", "slept", "slept", "sleeping"],
+  speak: ["speaks", "spoke", "spoken", "speaking"],
+  spend: ["spends", "spent", "spent", "spending"],
+  stand: ["stands", "stood", "stood", "standing"],
+  swim: ["swims", "swam", "swum", "swimming"],
+  take: ["takes", "took", "taken", "taking"],
+  teach: ["teaches", "taught", "taught", "teaching"],
+  tell: ["tells", "told", "told", "telling"],
+  think: ["thinks", "thought", "thought", "thinking"],
+  understand: ["understands", "understood", "understood", "understanding"],
+  wear: ["wears", "wore", "worn", "wearing"],
+  win: ["wins", "won", "won", "winning"],
+  write: ["writes", "wrote", "written", "writing"]
+};
+
+function regularVerbForms(base) {
+  const third = /(s|sh|ch|x|z|o)$/.test(base) ? `${base}es` : /[^aeiou]y$/.test(base) ? `${base.slice(0, -1)}ies` : `${base}s`;
+  const shortConsonantVowelConsonant = base.length <= 4
+    && /^[^aeiou][aeiou][^aeiou]$/.test(base)
+    && !/[wxyz]$/.test(base);
+  const pastBase = shortConsonantVowelConsonant ? `${base}${base.slice(-1)}` : base;
+  const past = /[^aeiou]y$/.test(base)
+    ? `${base.slice(0, -1)}ied`
+    : /e$/.test(base) ? `${base}d` : `${pastBase}ed`;
+  const ing = /ie$/.test(base)
+    ? `${base.slice(0, -2)}ying`
+    : /e$/.test(base) && !/(ee|ye|oe)$/.test(base) ? `${base.slice(0, -1)}ing`
+      : shortConsonantVowelConsonant ? `${base}${base.slice(-1)}ing` : `${base}ing`;
+  return [third, past, past, ing];
+}
+
+function getVerbForms(input) {
+  const base = input.trim().toLocaleLowerCase();
+  return { base, forms: irregularVerbForms[base] || regularVerbForms(base), irregular: Boolean(irregularVerbForms[base]) };
+}
+
+function conjugatorExamples(forms) {
+  const { base } = forms;
+  if (base === "be") {
+    return [
+      ["Present simple", "I am ready for class."],
+      ["Present continuous", "She is being very careful today."],
+      ["Present perfect", "They have been helpful."],
+      ["Past simple", "We were tired yesterday."],
+      ["Past continuous", "He was being polite."],
+      ["Past perfect", "I had been there before."],
+      ["Future with will", "You will be ready soon."],
+      ["Future going to", "We are going to be late."],
+      ["Future perfect", "By noon, she will have been here for two hours."],
+      ["Conditional", "I would be happier with more practice."]
+    ];
+  }
+  const [, past, participle, ing] = forms.forms;
+  return [
+    ["Present simple", `I ${base} regularly.`],
+    ["Present continuous", `I am ${ing} right now.`],
+    ["Present perfect", `I have ${participle} before.`],
+    ["Past simple", `I ${past} yesterday.`],
+    ["Past continuous", `I was ${ing} at 7 p.m.`],
+    ["Past perfect", `I had ${participle} before the lesson started.`],
+    ["Future with will", `I will ${base} tomorrow.`],
+    ["Future going to", `I am going to ${base} this evening.`],
+    ["Future perfect", `By Friday, I will have ${participle} for five days.`],
+    ["Conditional", `I would ${base} more if I had time.`]
+  ];
+}
+
+function escapeConjugatorHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[character]));
+}
+
+function renderConjugator() {
+  const panel = $("#resourcePanel");
+  panel.innerHTML = `
+    <div class="conjugator">
+      <span class="eyebrow">Grammar tool · offline</span>
+      <h2>Conjugate an English verb</h2>
+      <p class="resource-intro">Enter a base-form verb to see its key forms and ten useful tense examples.</p>
+      <form class="conjugator-form" id="conjugatorForm" novalidate>
+        <label for="conjugatorInput">English verb</label>
+        <div class="conjugator-input-row">
+          <input id="conjugatorInput" type="text" value="go" autocomplete="off" placeholder="e.g. go, study, write" aria-describedby="conjugatorError">
+          <button class="primary-button" type="submit">Conjugate</button>
+        </div>
+        <p class="conjugator-error" id="conjugatorError" role="alert"></p>
+      </form>
+      <div id="conjugatorResults" class="conjugator-results" aria-live="polite"></div>
+    </div>
+  `;
+  const form = panel.querySelector("#conjugatorForm");
+  const input = panel.querySelector("#conjugatorInput");
+  const error = panel.querySelector("#conjugatorError");
+  const results = panel.querySelector("#conjugatorResults");
+
+  const showResults = () => {
+    const value = input.value.trim().toLocaleLowerCase();
+    if (!value) {
+      error.textContent = "Enter a verb in its base form.";
+      results.innerHTML = "";
+      input.setAttribute("aria-invalid", "true");
+      return;
+    }
+    if (!/^[a-z]+$/.test(value)) {
+      error.textContent = "Use one English verb with letters only, such as “study” or “write.”";
+      results.innerHTML = "";
+      input.setAttribute("aria-invalid", "true");
+      return;
+    }
+    error.textContent = "";
+    input.removeAttribute("aria-invalid");
+    const conjugated = getVerbForms(value);
+    const [third, past, participle, ing] = conjugated.forms;
+    const forms = [
+      ["Base form", conjugated.base],
+      ["Third person", third],
+      ["Past", past],
+      ["Past participle", participle],
+      ["-ing form", ing]
+    ];
+    const tenseExamples = conjugatorExamples(conjugated);
+    results.innerHTML = `
+      <div class="conjugator-summary">
+        <div><span class="resource-label">Verb</span><strong>${escapeConjugatorHtml(conjugated.base)}</strong></div>
+        <span class="conjugator-badge">${conjugated.irregular ? "Irregular verb" : "Regular rule"}</span>
+      </div>
+      <div class="conjugator-form-grid">${forms.map(([label, formValue]) => `<div class="conjugator-form-card"><span>${label}</span><strong>${escapeConjugatorHtml(formValue)}</strong><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(formValue)}">▶ Listen</button></div>`).join("")}</div>
+      <div class="tense-heading"><h3>Major tense examples</h3><span>Listen and notice the verb pattern</span></div>
+      <div class="tense-grid">${tenseExamples.map(([label, example]) => `<article class="tense-card"><span>${label}</span><p>${escapeConjugatorHtml(example)}</p><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(example)}">▶ Listen</button></article>`).join("")}</div>
+      <div class="conjugator-practice">
+        <strong>Quick practice</strong>
+        <span>What is the past participle of <b>${escapeConjugatorHtml(conjugated.base)}</b>?</span>
+        <div class="conjugator-practice-row"><input id="conjugatorPracticeInput" type="text" placeholder="Type the form" autocomplete="off"><button class="secondary-button" id="conjugatorPracticeCheck" type="button">Check</button></div>
+        <p id="conjugatorPracticeFeedback" class="feedback" role="status"></p>
+      </div>
+    `;
+    results.querySelectorAll(".conjugator-speak").forEach((button) => {
+      button.addEventListener("click", () => speakText(button.dataset.speak, button));
+    });
+    const practiceInput = results.querySelector("#conjugatorPracticeInput");
+    const practiceFeedback = results.querySelector("#conjugatorPracticeFeedback");
+    results.querySelector("#conjugatorPracticeCheck").addEventListener("click", () => {
+      const answer = practiceInput.value.trim().toLocaleLowerCase();
+      if (!answer) {
+        practiceFeedback.textContent = "Type an answer before checking.";
+        practiceFeedback.style.color = "var(--orange)";
+      } else if (answer === participle) {
+        practiceFeedback.textContent = "Correct! That is the past participle.";
+        practiceFeedback.style.color = "var(--green)";
+      } else {
+        practiceFeedback.textContent = `Not quite. The past participle is “${participle}.”`;
+        practiceFeedback.style.color = "var(--orange)";
+      }
+    });
+  };
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    showResults();
+  });
+  showResults();
+}
+
 let currentIndex = 0;
 let lesson = lessons[currentIndex];
 
@@ -856,6 +1064,10 @@ function recordActivity(correct) {
 
 function renderResources(type) {
   const panel = $("#resourcePanel");
+  if (type === "conjugator") {
+    renderConjugator();
+    return;
+  }
   if (type === "vocabulary") {
     const level = $("#levelSelect").selectedOptions[0].text;
     const count = lessons.filter((item) => item.level === $("#levelSelect").value).length;
