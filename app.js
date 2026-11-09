@@ -848,9 +848,11 @@ function renderConjugator() {
         practiceFeedback.textContent = "Type an answer before checking.";
         practiceFeedback.style.color = "var(--orange)";
       } else if (answer === participle) {
+        recordActivity(true);
         practiceFeedback.textContent = "Correct! That is the past participle.";
         practiceFeedback.style.color = "var(--green)";
       } else {
+        recordActivity(false);
         practiceFeedback.textContent = `Not quite. The past participle is “${participle}.”`;
         practiceFeedback.style.color = "var(--orange)";
       }
@@ -861,6 +863,105 @@ function renderConjugator() {
     showResults();
   });
   showResults();
+}
+
+const placementQuestions = [
+  { level: "beginner", prompt: "Choose the correct sentence.", choices: ["She go to school.", "She goes to school.", "She going school."], answer: 1 },
+  { level: "beginner", prompt: "What does “hungry” mean?", choices: ["Wanting food", "Feeling cold", "Being late"], answer: 0 },
+  { level: "elementary", prompt: "Complete: I have lived here ___ 2022.", choices: ["for", "since", "during"], answer: 1 },
+  { level: "elementary", prompt: "Which word is closest to “begin”?", choices: ["finish", "start", "forget"], answer: 1 },
+  { level: "intermediate", prompt: "Complete: If I had more time, I ___ another language.", choices: ["learn", "will learn", "would learn"], answer: 2 },
+  { level: "intermediate", prompt: "Choose the natural collocation.", choices: ["make a decision", "do a decision", "take a decisioning"], answer: 0 },
+  { level: "upper", prompt: "“Although” introduces a:", choices: ["contrast", "cause", "definition"], answer: 0 },
+  { level: "upper", prompt: "Choose the most precise option: The evidence was ___ enough to support the claim.", choices: ["sufficient", "many", "quickly"], answer: 0 }
+];
+
+function renderPlacementTest() {
+  const panel = $("#resourcePanel");
+  panel.innerHTML = `
+    <div class="placement">
+      <span class="eyebrow">Personalized starting point</span>
+      <h2>Find your recommended level</h2>
+      <p class="resource-intro">Answer eight quick questions. Your result is saved only in this browser and helps LLapp choose a suitable level.</p>
+      <div class="placement-progress"><span id="placementProgress"></span></div>
+      <div id="placementQuestion" class="placement-question"></div>
+      <div class="placement-actions">
+        <button class="secondary-button" id="placementBack" type="button">Back</button>
+        <button class="primary-button" id="placementNext" type="button">Start test</button>
+      </div>
+      <div id="placementResult" class="placement-result" hidden></div>
+    </div>
+  `;
+  const questionElement = panel.querySelector("#placementQuestion");
+  const nextButton = panel.querySelector("#placementNext");
+  const backButton = panel.querySelector("#placementBack");
+  const progress = panel.querySelector("#placementProgress");
+  const result = panel.querySelector("#placementResult");
+  let index = -1;
+  const answers = [];
+
+  const renderQuestion = () => {
+    if (index < 0) {
+      questionElement.innerHTML = `<div class="placement-welcome"><strong>Ready?</strong><span>You will see grammar and vocabulary from beginner to upper-intermediate levels.</span></div>`;
+      progress.style.width = "0%";
+      nextButton.textContent = "Start test";
+      backButton.disabled = true;
+      return;
+    }
+    const question = placementQuestions[index];
+    questionElement.innerHTML = `
+      <span class="resource-label">Question ${index + 1} of ${placementQuestions.length}</span>
+      <h3>${question.prompt}</h3>
+      <div class="placement-choices">${question.choices.map((choice, choiceIndex) => `<button class="choice-button ${answers[index] === choiceIndex ? "selected" : ""}" type="button" data-choice="${choiceIndex}">${choice}</button>`).join("")}</div>
+    `;
+    questionElement.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        answers[index] = Number(button.dataset.choice);
+        renderQuestion();
+      });
+    });
+    progress.style.width = `${((index + 1) / placementQuestions.length) * 100}%`;
+    nextButton.textContent = index === placementQuestions.length - 1 ? "See my level" : "Next question";
+    backButton.disabled = false;
+  };
+
+  const finish = () => {
+    const score = answers.reduce((total, answer, questionIndex) => total + (answer === placementQuestions[questionIndex].answer ? 1 : 0), 0);
+    const level = score <= 2 ? "beginner" : score <= 4 ? "elementary" : score <= 6 ? "intermediate" : "upper";
+    const labels = { beginner: "Beginner · A1", elementary: "Elementary · A2", intermediate: "Intermediate · B1", upper: "Upper-intermediate · B2" };
+    localStorage.setItem("llapp-recommended-level", level);
+    result.hidden = false;
+    result.innerHTML = `<strong>Your recommended level: ${labels[level]}</strong><span>You scored ${score} out of ${placementQuestions.length}. LLapp has selected this level in your learning library.</span><button class="primary-button" id="usePlacementLevel" type="button">Start learning at this level</button>`;
+    result.querySelector("#usePlacementLevel").addEventListener("click", () => {
+      $("#levelSelect").value = level;
+      renderWordOptions();
+      renderLesson();
+      document.querySelector('[data-content="vocabulary"]').click();
+    });
+    questionElement.innerHTML = "";
+    nextButton.hidden = true;
+    backButton.hidden = true;
+  };
+
+  nextButton.addEventListener("click", () => {
+    if (index >= 0 && answers[index] === undefined) {
+      questionElement.insertAdjacentHTML("beforeend", `<p class="placement-error">Choose an answer before continuing.</p>`);
+      return;
+    }
+    if (index === placementQuestions.length - 1) {
+      finish();
+      return;
+    }
+    index += 1;
+    renderQuestion();
+  });
+  backButton.addEventListener("click", () => {
+    if (index > 0) {
+      index -= 1;
+      renderQuestion();
+    }
+  });
+  renderQuestion();
 }
 
 let currentIndex = 0;
@@ -1066,6 +1167,10 @@ function renderResources(type) {
   const panel = $("#resourcePanel");
   if (type === "conjugator") {
     renderConjugator();
+    return;
+  }
+  if (type === "placement") {
+    renderPlacementTest();
     return;
   }
   if (type === "vocabulary") {
