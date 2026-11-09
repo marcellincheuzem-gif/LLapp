@@ -1,4 +1,4 @@
-const CACHE_NAME = "llapp-v3";
+const CACHE_NAME = "llapp-v4";
 const APP_SHELL = [
   "./",
   "./index.html",

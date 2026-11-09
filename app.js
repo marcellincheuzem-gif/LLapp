@@ -1458,8 +1458,8 @@ function renderResources(type) {
     setupActivities(panel);
     return;
   }
-  const data = type === "idioms" ? currentLevelResources("idioms") : type === "abbreviations" ? currentLevelResources("abbreviations") : smallTalk;
-  const title = type === "idioms" ? "Idioms and their meaning" : type === "abbreviations" ? "Useful abbreviations" : "Small talk starters";
+  const data = type === "idioms" ? currentLevelResources("idioms") : smallTalk;
+  const title = type === "idioms" ? "Idioms and their meaning" : "Small talk starters";
   const level = $("#levelSelect").selectedOptions[0].text;
   panel.innerHTML = `<span class="eyebrow">${type.replace("-", " ")} · ${level}</span><h2>${title} for your level</h2><p class="resource-intro">Save the expressions you want to use in your next conversation.</p>${renderResourceGrid(data, type === "idioms" ? "Meaning" : "Use")}`;
 }

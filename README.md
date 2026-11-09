@@ -2,7 +2,7 @@
 
 LLapp is a mobile-friendly English-learning web app focused on pronunciation,
 word families, parts of speech, contextual sentences, real-life situations,
-phrasal verbs, idioms, abbreviations, translation, and speaking practice.
+phrasal verbs, idioms, translation, and speaking practice.
 
 It also includes a placement test that recommends a starting level and an
 offline English verb conjugator with tense examples and practice.
