@@ -272,13 +272,6 @@ const generatedTranslations = {
   zh: { hello: "你好", family: "家庭", school: "学校", work: "工作", water: "水", food: "食物", house: "房子", friend: "朋友", happy: "快乐", important: "重要" }
 };
 
-const reverseTranslationCatalog = {};
-Object.entries(generatedTranslations).forEach(([language, words]) => {
-  reverseTranslationCatalog[language] = Object.fromEntries(
-    Object.entries(words).map(([english, translated]) => [translated.toLocaleLowerCase(), english])
-  );
-});
-
 Object.entries(lessonWordLists).forEach(([level, words]) => {
   const existing = lessons.filter((item) => item.level === level).length;
   words.split(" ").forEach((word, index) => {
@@ -1425,12 +1418,12 @@ function renderResources(type) {
     panel.innerHTML = `
       <span class="eyebrow">Practice activities · ${$("#levelSelect").selectedOptions[0].text}</span>
       <h2>Use your language to learn English</h2>
-      <p class="resource-intro">Choose a language, translate the word, and check its part of speech. Activities use the vocabulary for your selected level.</p>
+      <p class="resource-intro">Choose a language, write the translation, and identify the word type. Each activity gives clear feedback and adds to your score.</p>
       ${renderScoreDashboard()}
       <div class="activity-grid">
         <article class="activity-card">
-          <h3>1. Translate the word</h3>
-          <p>Translate <strong>${lesson.word}</strong> into your language. Your answer is checked against the built-in lesson translation.</p>
+          <h3>1. Write the translation</h3>
+          <p>Write the meaning of <strong>${lesson.word}</strong> in your selected language. Then press <strong>Check</strong>.</p>
           <div class="activity-controls">
             <select id="activityLanguage" aria-label="Translation language">${languageOptions}</select>
             <input id="translationAnswer" type="text" placeholder="Type the translation" autocomplete="off">
@@ -1439,19 +1432,10 @@ function renderResources(type) {
           <p class="activity-feedback" id="translationFeedback" role="status"></p>
         </article>
         <article class="activity-card">
-          <h3>2. Identify the part of speech</h3>
-          <p>What part of speech is <strong>${lesson.word}</strong>?</p>
+          <h3>2. Choose the word type</h3>
+          <p>Is <strong>${lesson.word}</strong> a noun, verb, adjective, or another type of word?</p>
           <div class="activity-controls">${choices}</div>
           <p class="activity-feedback" id="partOfSpeechFeedback" role="status"></p>
-        </article>
-        <article class="activity-card">
-          <h3>3. Translate into English</h3>
-          <p>Enter a word in your selected language and LLapp will find the English lesson word.</p>
-          <div class="activity-controls">
-            <input id="reverseTranslationAnswer" type="text" placeholder="Write a word in your language" autocomplete="off">
-            <button class="primary-button" id="reverseTranslationCheck" type="button">Find English</button>
-          </div>
-          <p class="activity-feedback" id="reverseTranslationFeedback" role="status">Start typing to see an English match.</p>
         </article>
       </div>
     `;
@@ -1472,24 +1456,7 @@ function setupActivities(panel) {
   languageSelect.addEventListener("change", () => {
     $("#languageSelect").value = languageSelect.value;
     updateTranslation();
-    showLiveReverseTranslation();
   });
-  const reverseInput = panel.querySelector("#reverseTranslationAnswer");
-  const reverseFeedback = panel.querySelector("#reverseTranslationFeedback");
-  function showLiveReverseTranslation() {
-    const input = reverseInput.value.trim().toLocaleLowerCase();
-    if (!input) {
-      reverseFeedback.textContent = "Start typing to see an English match.";
-      reverseFeedback.style.color = "var(--muted)";
-      return;
-    }
-    const language = languageSelect.value;
-    const match = lessons.find((item) => item.translations?.[language]?.toLocaleLowerCase() === input)
-      || (reverseTranslationCatalog[language]?.[input] ? { word: reverseTranslationCatalog[language][input] } : null);
-    reverseFeedback.textContent = match ? `English match: ${match.word}` : "No match yet — keep typing or try another word.";
-    reverseFeedback.style.color = match ? "var(--green)" : "var(--muted)";
-  }
-  reverseInput.addEventListener("input", showLiveReverseTranslation);
   panel.querySelector("#translationCheck").addEventListener("click", () => {
     const expected = lesson.translations[languageSelect.value] || "";
     const answer = answerInput.value.trim().toLocaleLowerCase();
@@ -1503,31 +1470,6 @@ function setupActivities(panel) {
     } else {
       feedback.textContent = `Try again. The lesson answer is: ${expected || "not available yet"}.`;
       feedback.style.color = "var(--orange)";
-      recordActivity(false);
-    }
-  });
-  panel.querySelector("#reverseTranslationCheck").addEventListener("click", () => {
-    const language = languageSelect.value;
-    const input = reverseInput.value.trim().toLocaleLowerCase();
-    const result = panel.querySelector("#reverseTranslationFeedback");
-    if (!input) {
-      result.textContent = "Enter a word first.";
-      result.style.color = "var(--orange)";
-      return;
-    }
-    const matches = lessons
-      .filter((item) => item.translations?.[language]?.toLocaleLowerCase() === input)
-      .slice(0, 5)
-      .map((item) => item.word);
-    const catalogMatch = reverseTranslationCatalog[language]?.[input];
-    if (catalogMatch && !matches.includes(catalogMatch)) matches.unshift(catalogMatch);
-    if (matches.length) {
-      result.textContent = `English: ${matches.join(", ")}`;
-      result.style.color = "var(--green)";
-      recordActivity(true);
-    } else {
-      result.textContent = "No lesson match yet. Try another word or choose a different language.";
-      result.style.color = "var(--orange)";
       recordActivity(false);
     }
   });

@@ -11,6 +11,8 @@ Each level now includes 50 phrasal verbs, plus a level-specific Academic Words
 section with definitions and example sentences.
 It also includes an offline Conjugator tab for regular and common irregular
 verbs, with key forms, major tense examples, audio buttons, and quick practice.
+Activities use simple instructions for writing a translation and identifying
+the word type.
 
 ## Use on Android
 
