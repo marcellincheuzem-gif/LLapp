@@ -12,7 +12,8 @@ section with definitions and example sentences.
 It also includes an offline Conjugator tab for regular and common irregular
 verbs, with key forms, major tense examples, audio buttons, and quick practice.
 Activities use simple instructions for writing a translation and identifying
-the word type.
+the word type. They also include meaning-in-context questions, word-family
+practice, and listen-and-type recall.
 
 ## Use on Android
 

@@ -1415,6 +1415,21 @@ function renderResources(type) {
       .sort(() => Math.random() - 0.5)
       .map((choice) => `<button class="choice-button" type="button" data-choice="${choice}">${choice}</button>`)
       .join("");
+    const meaningChoices = [lesson.definition, ...lessons
+      .filter((item) => item.word !== lesson.word)
+      .slice(0, 8)
+      .map((item) => item.definition)]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+    if (!meaningChoices.includes(lesson.definition)) meaningChoices[0] = lesson.definition;
+    const meaningButtons = meaningChoices
+      .map((meaning) => `<button class="choice-button" type="button" data-meaning="${meaning.replace(/"/g, "&quot;")}">${meaning}</button>`)
+      .join("");
+    const familyAnswer = lesson.family.find(([word]) => word !== lesson.word)?.[0] || lesson.word;
+    const familyChoices = [familyAnswer, lesson.word, "unrelated"].sort(() => Math.random() - 0.5)
+      .map((word) => `<button class="choice-button" type="button" data-family="${word}">${word}</button>`)
+      .join("");
+    const listeningSentence = lesson.sentences[0];
     panel.innerHTML = `
       <span class="eyebrow">Practice activities · ${$("#levelSelect").selectedOptions[0].text}</span>
       <h2>Use your language to learn English</h2>
@@ -1437,6 +1452,28 @@ function renderResources(type) {
           <div class="activity-controls">${choices}</div>
           <p class="activity-feedback" id="partOfSpeechFeedback" role="status"></p>
         </article>
+        <article class="activity-card">
+          <h3>3. Understand the meaning</h3>
+          <p>Choose the definition that best explains <strong>${lesson.word}</strong>.</p>
+          <div class="activity-controls meaning-choices">${meaningButtons}</div>
+          <p class="activity-feedback" id="meaningFeedback" role="status"></p>
+        </article>
+        <article class="activity-card">
+          <h3>4. Build the word family</h3>
+          <p>Which word belongs to the family of <strong>${lesson.word}</strong>?</p>
+          <div class="activity-controls">${familyChoices}</div>
+          <p class="activity-feedback" id="familyFeedback" role="status"></p>
+        </article>
+        <article class="activity-card">
+          <h3>5. Listen and type</h3>
+          <p>Listen to one example sentence, then type the word you hear.</p>
+          <button class="secondary-button activity-listen" id="listeningButton" type="button">▶ Listen to the sentence</button>
+          <div class="activity-controls">
+            <input id="listeningAnswer" type="text" placeholder="Type the missing word" autocomplete="off">
+            <button class="primary-button" id="listeningCheck" type="button">Check</button>
+          </div>
+          <p class="activity-feedback" id="listeningFeedback" role="status"></p>
+        </article>
       </div>
     `;
     setupActivities(panel);
@@ -1452,6 +1489,8 @@ function setupActivities(panel) {
   const languageSelect = panel.querySelector("#activityLanguage");
   const answerInput = panel.querySelector("#translationAnswer");
   const feedback = panel.querySelector("#translationFeedback");
+  const familyAnswer = lesson.family.find(([word]) => word !== lesson.word)?.[0] || lesson.word;
+  const listeningSentence = lesson.sentences[0];
   languageSelect.value = localStorage.getItem("llapp-language") || $("#languageSelect").value || "fr";
   languageSelect.addEventListener("change", () => {
     $("#languageSelect").value = languageSelect.value;
@@ -1474,6 +1513,7 @@ function setupActivities(panel) {
     }
   });
   panel.querySelectorAll(".choice-button").forEach((button) => button.addEventListener("click", () => {
+    if (button.dataset.meaning || button.dataset.family) return;
     const result = panel.querySelector("#partOfSpeechFeedback");
     const correct = button.dataset.choice === lesson.partOfSpeech;
     result.textContent = correct ? "Correct!" : `Not quite. “${lesson.word}” is a ${lesson.partOfSpeech}.`;
@@ -1481,6 +1521,33 @@ function setupActivities(panel) {
     if (correct) button.classList.add("correct");
     recordActivity(correct);
   }));
+  panel.querySelectorAll("[data-meaning]").forEach((button) => button.addEventListener("click", () => {
+    const correct = button.dataset.meaning === lesson.definition;
+    const result = panel.querySelector("#meaningFeedback");
+    result.textContent = correct ? "Correct! You understand the word." : "Not quite. Read the definition on the lesson card and try again.";
+    result.style.color = correct ? "var(--green)" : "var(--orange)";
+    if (correct) button.classList.add("correct");
+    recordActivity(correct);
+  }));
+  panel.querySelectorAll("[data-family]").forEach((button) => button.addEventListener("click", () => {
+    const correct = button.dataset.family === familyAnswer;
+    const result = panel.querySelector("#familyFeedback");
+    result.textContent = correct ? "Correct! This word is part of the family." : `Not quite. A family word is “${familyAnswer}.”`;
+    result.style.color = correct ? "var(--green)" : "var(--orange)";
+    if (correct) button.classList.add("correct");
+    recordActivity(correct);
+  }));
+  panel.querySelector("#listeningButton").addEventListener("click", (event) => {
+    speakText(listeningSentence, event.currentTarget);
+  });
+  panel.querySelector("#listeningCheck").addEventListener("click", () => {
+    const answer = panel.querySelector("#listeningAnswer").value.trim().toLocaleLowerCase();
+    const result = panel.querySelector("#listeningFeedback");
+    const correct = answer === lesson.word.toLocaleLowerCase();
+    result.textContent = !answer ? "Type the word you heard first." : correct ? "Correct! You heard the target word." : `Not quite. The word was “${lesson.word}.”`;
+    result.style.color = correct ? "var(--green)" : "var(--orange)";
+    if (answer) recordActivity(correct);
+  });
 }
 
 function setupSpeakPractice(panel, lessonsForLevel = speakLessons) {
