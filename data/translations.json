@@ -1,0 +1,222 @@
+﻿{
+    "careful":  {
+                    "fr":  "prudent",
+                    "es":  "cuidadoso",
+                    "vi":  "cáº©n tháº­n",
+                    "fa":  "Ù…Ø­ØªØ§Ø·",
+                    "ko":  "ì¡°ì‹¬ìŠ¤ëŸ¬ìš´",
+                    "de":  "vorsichtig",
+                    "ar":  "Ø­Ø°Ø±",
+                    "pt":  "cuidadoso",
+                    "zh":  "å°å¿ƒ"
+                },
+    "create":  {
+                   "fr":  "crÃ©er",
+                   "es":  "crear",
+                   "vi":  "táº¡o ra",
+                   "fa":  "Ø§ÛŒØ¬Ø§Ø¯ Ú©Ø±Ø¯Ù†",
+                   "ko":  "ë§Œë“¤ë‹¤",
+                   "de":  "schaffen",
+                   "ar":  "ÙŠÙ†Ø´Ø¦",
+                   "pt":  "criar",
+                   "zh":  "åˆ›é€ "
+               },
+    "improve":  {
+                    "fr":  "amÃ©liorer",
+                    "es":  "mejorar",
+                    "vi":  "cáº£i thiá»‡n",
+                    "fa":  "Ø¨Ù‡Ø¨ÙˆØ¯ Ø¯Ø§Ø¯Ù†",
+                    "ko":  "í–¥ìƒì‹œí‚¤ë‹¤",
+                    "de":  "verbessern",
+                    "ar":  "ÙŠØ­Ø³Ù†",
+                    "pt":  "melhorar",
+                    "zh":  "æ”¹å–„"
+                },
+    "confident":  {
+                      "fr":  "confiant",
+                      "es":  "seguro",
+                      "vi":  "tá»± tin",
+                      "fa":  "Ù…Ø·Ù…Ø¦Ù†",
+                      "ko":  "ìžì‹ ê° ìžˆëŠ”",
+                      "de":  "selbstbewusst",
+                      "ar":  "ÙˆØ§Ø«Ù‚",
+                      "pt":  "confiante",
+                      "zh":  "è‡ªä¿¡"
+                  },
+    "curious":  {
+                    "fr":  "curieux",
+                    "es":  "curioso",
+                    "vi":  "tÃ² mÃ²",
+                    "fa":  "Ú©Ù†Ø¬Ú©Ø§Ùˆ",
+                    "ko":  "í˜¸ê¸°ì‹¬ ë§Žì€",
+                    "de":  "neugierig",
+                    "ar":  "ÙØ¶ÙˆÙ„ÙŠ",
+                    "pt":  "curioso",
+                    "zh":  "å¥½å¥‡"
+                },
+    "prepare":  {
+                    "fr":  "prÃ©parer",
+                    "es":  "preparar",
+                    "vi":  "chuáº©n bá»‹",
+                    "fa":  "Ø¢Ù…Ø§Ø¯Ù‡ Ú©Ø±Ø¯Ù†",
+                    "ko":  "ì¤€ë¹„í•˜ë‹¤",
+                    "de":  "vorbereiten",
+                    "ar":  "ÙŠØ¬Ù‡Ø²",
+                    "pt":  "preparar",
+                    "zh":  "å‡†å¤‡"
+                },
+    "recommend":  {
+                      "fr":  "recommander",
+                      "es":  "recomendar",
+                      "vi":  "giá»›i thiá»‡u",
+                      "fa":  "ØªÙˆØµÛŒÙ‡ Ú©Ø±Ø¯Ù†",
+                      "ko":  "ì¶”ì²œí•˜ë‹¤",
+                      "de":  "empfehlen",
+                      "ar":  "ÙŠÙˆØµÙŠ",
+                      "pt":  "recomendar",
+                      "zh":  "æŽ¨è"
+                  },
+    "perspective":  {
+                        "fr":  "perspective",
+                        "es":  "perspectiva",
+                        "vi":  "gÃ³c nhÃ¬n",
+                        "fa":  "Ø¯ÛŒØ¯Ú¯Ø§Ù‡",
+                        "ko":  "ê´€ì ",
+                        "de":  "Perspektive",
+                        "ar":  "Ù…Ù†Ø¸ÙˆØ±",
+                        "pt":  "perspectiva",
+                        "zh":  "è§†è§’"
+                    },
+    "reliable":  {
+                     "fr":  "fiable",
+                     "es":  "confiable",
+                     "vi":  "Ä‘Ã¡ng tin cáº­y",
+                     "fa":  "Ù‚Ø§Ø¨Ù„ Ø§Ø¹ØªÙ…Ø§Ø¯",
+                     "ko":  "ë¯¿ì„ ë§Œí•œ",
+                     "de":  "zuverlÃ¤ssig",
+                     "ar":  "Ù…ÙˆØ«ÙˆÙ‚",
+                     "pt":  "confiÃ¡vel",
+                     "zh":  "å¯é "
+                 },
+    "decide":  {
+                   "fr":  "dÃ©cider",
+                   "es":  "decidir",
+                   "vi":  "quyáº¿t Ä‘á»‹nh",
+                   "fa":  "ØªØµÙ…ÛŒÙ… Ú¯Ø±ÙØªÙ†",
+                   "ko":  "ê²°ì •í•˜ë‹¤",
+                   "de":  "entscheiden",
+                   "ar":  "ÙŠÙ‚Ø±Ø±",
+                   "pt":  "decidir",
+                   "zh":  "å†³å®š"
+               },
+    "opportunity":  {
+                        "fr":  "opportunitÃ©",
+                        "es":  "oportunidad",
+                        "vi":  "cÆ¡ há»™i",
+                        "fa":  "ÙØ±ØµØª",
+                        "ko":  "ê¸°íšŒ",
+                        "de":  "Gelegenheit",
+                        "ar":  "ÙØ±ØµØ©",
+                        "pt":  "oportunidade",
+                        "zh":  "æœºä¼š"
+                    },
+    "negotiate":  {
+                      "fr":  "nÃ©gocier",
+                      "es":  "negociar",
+                      "vi":  "thÆ°Æ¡ng lÆ°á»£ng",
+                      "fa":  "Ù…Ø°Ø§Ú©Ø±Ù‡ Ú©Ø±Ø¯Ù†",
+                      "ko":  "í˜‘ìƒí•˜ë‹¤",
+                      "de":  "verhandeln",
+                      "ar":  "ÙŠØªÙØ§ÙˆØ¶",
+                      "pt":  "negociar",
+                      "zh":  "è°ˆåˆ¤"
+                  },
+    "friendly":  {
+                     "fr":  "amical",
+                     "es":  "amable",
+                     "vi":  "thÃ¢n thiá»‡n",
+                     "fa":  "Ø¯ÙˆØ³ØªØ§Ù†Ù‡",
+                     "ko":  "ì¹œì ˆí•œ",
+                     "de":  "freundlich",
+                     "ar":  "ÙˆØ¯ÙˆØ¯",
+                     "pt":  "amigÃ¡vel",
+                     "zh":  "å‹å¥½"
+                 },
+    "patient":  {
+                    "fr":  "patient",
+                    "es":  "paciente",
+                    "vi":  "kiÃªn nháº«n",
+                    "fa":  "ØµØ¨ÙˆØ±",
+                    "ko":  "ì°¸ì„ì„± ìžˆëŠ”",
+                    "de":  "geduldig",
+                    "ar":  "ØµØ¨ÙˆØ±",
+                    "pt":  "paciente",
+                    "zh":  "è€å¿ƒ"
+                },
+    "comfortable":  {
+                        "fr":  "confortable",
+                        "es":  "cÃ³modo",
+                        "vi":  "thoáº£i mÃ¡i",
+                        "fa":  "Ø±Ø§Ø­Øª",
+                        "ko":  "íŽ¸ì•ˆí•œ",
+                        "de":  "bequem",
+                        "ar":  "Ù…Ø±ÙŠØ­",
+                        "pt":  "confortÃ¡vel",
+                        "zh":  "èˆ’é€‚"
+                    },
+    "available":  {
+                      "fr":  "disponible",
+                      "es":  "disponible",
+                      "vi":  "cÃ³ sáºµn",
+                      "fa":  "Ø¯Ø± Ø¯Ø³ØªØ±Ø³",
+                      "ko":  "ì´ìš© ê°€ëŠ¥í•œ",
+                      "de":  "verfÃ¼gbar",
+                      "ar":  "Ù…ØªØ§Ø­",
+                      "pt":  "disponÃ­vel",
+                      "zh":  "å¯ç”¨"
+                  },
+    "communicate":  {
+                        "fr":  "communiquer",
+                        "es":  "comunicar",
+                        "vi":  "giao tiáº¿p",
+                        "fa":  "Ø§Ø±ØªØ¨Ø§Ø· Ø¨Ø±Ù‚Ø±Ø§Ø± Ú©Ø±Ø¯Ù†",
+                        "ko":  "ì†Œí†µí•˜ë‹¤",
+                        "de":  "kommunizieren",
+                        "ar":  "ÙŠØªÙˆØ§ØµÙ„",
+                        "pt":  "comunicar",
+                        "zh":  "æ²Ÿé€š"
+                    },
+    "flexible":  {
+                     "fr":  "flexible",
+                     "es":  "flexible",
+                     "vi":  "linh hoáº¡t",
+                     "fa":  "Ø§Ù†Ø¹Ø·Ø§Ùâ€ŒÙ¾Ø°ÛŒØ±",
+                     "ko":  "ìœ ì—°í•œ",
+                     "de":  "flexibel",
+                     "ar":  "Ù…Ø±Ù†",
+                     "pt":  "flexÃ­vel",
+                     "zh":  "çµæ´»"
+                 },
+    "significant":  {
+                        "fr":  "important",
+                        "es":  "significativo",
+                        "vi":  "Ä‘Ã¡ng ká»ƒ",
+                        "fa":  "Ù‚Ø§Ø¨Ù„ ØªÙˆØ¬Ù‡",
+                        "ko":  "ì¤‘ìš”í•œ",
+                        "de":  "bedeutend",
+                        "ar":  "Ù…Ù‡Ù…",
+                        "pt":  "significativo",
+                        "zh":  "é‡è¦"
+                    },
+    "subtle":  {
+                   "fr":  "subtil",
+                   "es":  "sutil",
+                   "vi":  "tinh táº¿",
+                   "fa":  "Ø¸Ø±ÛŒÙ",
+                   "ko":  "ë¯¸ë¬˜í•œ",
+                   "de":  "subtil",
+                   "ar":  "Ø¯Ù‚ÙŠÙ‚",
+                   "pt":  "sutil",
+                   "zh":  "å¾®å¦™"
+               }
+}

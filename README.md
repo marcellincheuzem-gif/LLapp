@@ -15,6 +15,10 @@ Activities use simple instructions for writing a translation and identifying
 the word type. They also include meaning-in-context questions, word-family
 practice, and listen-and-type recall.
 
+The main authored lesson and translation datasets are stored separately in
+`data/lessons.json` and `data/translations.json`. The app loads these files
+without changing the existing interface or learning flow.
+
 ## Use on Android
 
 Open the published GitHub Pages URL in Chrome or Firefox on Android. The app

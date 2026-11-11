@@ -1,249 +1,23 @@
-const lessons = [
-  {
-    word: "careful",
-    pronunciation: "/ˈker.fəl/",
-    partOfSpeech: "adjective",
-    definition: "Giving attention to avoid mistakes, danger, or harm.",
-    family: [["care", "noun / verb"], ["careful", "adjective"], ["carefully", "adverb"], ["carelessness", "noun"]],
-    sentences: ["Be careful when you cross the street.", "She carefully checked the answer before submitting it.", "His carelessness caused a small problem."],
-    question: "Please be ___ with that glass.",
-    answer: "careful"
-  },
-  {
-    word: "create",
-    pronunciation: "/kriˈeɪt/",
-    partOfSpeech: "verb",
-    definition: "To make something new or cause something to happen.",
-    family: [["create", "verb"], ["creative", "adjective"], ["creation", "noun"], ["creatively", "adverb"]],
-    sentences: ["We create a new lesson every week.", "She has a creative way of explaining grammar.", "The creation of this app took careful planning."],
-    question: "Designers ___ useful tools for learners.",
-    answer: "create"
-  },
-  {
-    word: "improve",
-    pronunciation: "/ɪmˈpruːv/",
-    partOfSpeech: "verb",
-    definition: "To become better or make something better.",
-    family: [["improve", "verb"], ["improvement", "noun"], ["improved", "adjective"], ["improving", "adjective"]],
-    sentences: ["Practice helps you improve your pronunciation.", "Her improvement was easy to hear.", "The updated lesson has an improved audio track."],
-    question: "Daily practice can ___ your speaking.",
-    answer: "improve"
-  },
-  {
-    word: "confident",
-    pronunciation: "/ˈkɑːn.fə.dənt/",
-    partOfSpeech: "adjective",
-    definition: "Feeling sure about your abilities or knowledge.",
-    family: [["confidence", "noun"], ["confident", "adjective"], ["confidently", "adverb"], ["unconfident", "adjective"]],
-    sentences: ["She feels confident speaking with new people.", "His confidence grew after more practice.", "He answered the question confidently."],
-    question: "After practicing, I feel more ___.",
-    answer: "confident"
-  },
-  {
-    word: "curious",
-    pronunciation: "/ˈkjʊr.i.əs/",
-    partOfSpeech: "adjective",
-    definition: "Wanting to learn or know more about something.",
-    level: "beginner",
-    family: [["curiosity", "noun"], ["curious", "adjective"], ["curiously", "adverb"]],
-    sentences: ["Curious learners ask useful questions.", "Her curiosity helped her discover a new museum.", "He looked curiously at the unusual painting."],
-    question: "A person who wants to learn is ___.",
-    answer: "curious"
-  },
-  {
-    word: "prepare",
-    pronunciation: "/prɪˈper/",
-    partOfSpeech: "verb",
-    definition: "To make something or someone ready for an activity or event.",
-    level: "elementary",
-    family: [["prepare", "verb"], ["preparation", "noun"], ["prepared", "adjective"], ["unprepared", "adjective"]],
-    sentences: ["Please prepare your questions before the lesson.", "Good preparation makes speaking easier.", "She was prepared for the traffic."],
-    question: "I need to ___ for my interview.",
-    answer: "prepare"
-  },
-  {
-    word: "recommend",
-    pronunciation: "/ˌrek.əˈmend/",
-    partOfSpeech: "verb",
-    definition: "To suggest that someone or something is good or suitable.",
-    level: "intermediate",
-    family: [["recommend", "verb"], ["recommendation", "noun"], ["recommended", "adjective"]],
-    sentences: ["What restaurant do you recommend?", "He gave me a useful recommendation.", "This book is highly recommended for learners."],
-    question: "Which museum do you ___?",
-    answer: "recommend"
-  },
-  {
-    word: "perspective",
-    pronunciation: "/pɚˈspek.tɪv/",
-    partOfSpeech: "noun",
-    definition: "A particular way of thinking about or understanding something.",
-    level: "upper",
-    family: [["perspective", "noun"], ["perspective-taking", "noun"], ["perspectival", "adjective"]],
-    sentences: ["Travel can change your perspective.", "Try to see the problem from her perspective.", "The exhibit offers a new perspective on history."],
-    question: "Everyone has a different ___ on the situation.",
-    answer: "perspective"
-  },
-  {
-    word: "reliable",
-    pronunciation: "/rɪˈlaɪ.ə.bəl/",
-    partOfSpeech: "adjective",
-    definition: "Able to be trusted to do what is expected.",
-    level: "elementary",
-    family: [["rely", "verb"], ["reliable", "adjective"], ["reliably", "adverb"], ["reliability", "noun"]],
-    sentences: ["We need a reliable bus service.", "She is reliable and always arrives on time.", "The app works reliably on my phone."],
-    question: "A person you can trust is ___.",
-    answer: "reliable"
-  },
-  {
-    word: "decide",
-    pronunciation: "/dɪˈsaɪd/",
-    partOfSpeech: "verb",
-    definition: "To choose something after thinking about different possibilities.",
-    level: "elementary",
-    family: [["decide", "verb"], ["decision", "noun"], ["decisive", "adjective"], ["undecided", "adjective"]],
-    sentences: ["We need to decide where to eat.", "That was a difficult decision.", "She gave a decisive answer."],
-    question: "Have you ___ what to order?",
-    answer: "decided"
-  },
-  {
-    word: "opportunity",
-    pronunciation: "/ˌɑː.pɚˈtuː.nə.t̬i/",
-    partOfSpeech: "noun",
-    definition: "A suitable time or situation that makes it possible to do something.",
-    level: "intermediate",
-    family: [["opportunity", "noun"], ["opportune", "adjective"], ["opportunist", "noun"], ["opportunistic", "adjective"]],
-    sentences: ["This course is a great opportunity to practice.", "Take every opportunity to speak.", "The timing was opportune."],
-    question: "Learning abroad is a valuable ___.",
-    answer: "opportunity"
-  },
-  {
-    word: "negotiate",
-    pronunciation: "/nɪˈɡoʊ.ʃi.eɪt/",
-    partOfSpeech: "verb",
-    definition: "To try to reach an agreement by discussing something.",
-    level: "upper",
-    family: [["negotiate", "verb"], ["negotiation", "noun"], ["negotiator", "noun"], ["negotiable", "adjective"]],
-    sentences: ["They negotiated a better price.", "The negotiation lasted two hours.", "The delivery date is negotiable."],
-    question: "We need to ___ a fair agreement.",
-    answer: "negotiate"
-  },
-  {
-    word: "friendly",
-    pronunciation: "/ˈfrend.li/",
-    partOfSpeech: "adjective",
-    definition: "Kind, pleasant, and easy to talk to.",
-    level: "beginner",
-    family: [["friend", "noun"], ["friendly", "adjective"], ["friendship", "noun"], ["unfriendly", "adjective"]],
-    sentences: ["The barista was friendly and helpful.", "A friendly smile can start a conversation.", "Their friendship began at school."],
-    question: "Our new neighbor is very ___.",
-    answer: "friendly"
-  },
-  {
-    word: "patient",
-    pronunciation: "/ˈpeɪ.ʃənt/",
-    partOfSpeech: "adjective",
-    definition: "Able to wait or deal with difficulty without becoming upset.",
-    level: "beginner",
-    family: [["patience", "noun"], ["patient", "adjective"], ["patiently", "adverb"], ["impatient", "adjective"]],
-    sentences: ["Please be patient while the bus arrives.", "She patiently explained the answer.", "Patience helps when learning a language."],
-    question: "Learning a language requires ___.",
-    answer: "patience"
-  },
-  {
-    word: "comfortable",
-    pronunciation: "/ˈkʌm.fɚ.t̬ə.bəl/",
-    partOfSpeech: "adjective",
-    definition: "Feeling relaxed and free from discomfort.",
-    level: "elementary",
-    family: [["comfort", "noun / verb"], ["comfortable", "adjective"], ["comfortably", "adverb"], ["uncomfortable", "adjective"]],
-    sentences: ["This chair is comfortable.", "She feels comfortable speaking English now.", "We sat comfortably near the window."],
-    question: "Please make yourself ___ and stay awhile.",
-    answer: "comfortable"
-  },
-  {
-    word: "available",
-    pronunciation: "/əˈveɪ.lə.bəl/",
-    partOfSpeech: "adjective",
-    definition: "Ready to be used, bought, or reached.",
-    level: "elementary",
-    family: [["available", "adjective"], ["availability", "noun"], ["unavailable", "adjective"]],
-    sentences: ["Are there any tickets available?", "The teacher is available after class.", "Online booking shows the availability of seats."],
-    question: "Is this table ___?",
-    answer: "available"
-  },
-  {
-    word: "communicate",
-    pronunciation: "/kəˈmjuː.nə.keɪt/",
-    partOfSpeech: "verb",
-    definition: "To share information, ideas, or feelings with someone.",
-    level: "intermediate",
-    family: [["communicate", "verb"], ["communication", "noun"], ["communicative", "adjective"], ["communicator", "noun"]],
-    sentences: ["Good speakers communicate clearly.", "Email is one form of communication.", "She is a confident communicator."],
-    question: "We use language to ___ our ideas.",
-    answer: "communicate"
-  },
-  {
-    word: "flexible",
-    pronunciation: "/ˈflek.sə.bəl/",
-    partOfSpeech: "adjective",
-    definition: "Able to change or adapt easily to a new situation.",
-    level: "intermediate",
-    family: [["flexible", "adjective"], ["flexibility", "noun"], ["inflexible", "adjective"]],
-    sentences: ["My schedule is flexible this week.", "Flexibility is useful when plans change.", "The rules are not completely inflexible."],
-    question: "We need a ___ plan in case it rains.",
-    answer: "flexible"
-  },
-  {
-    word: "significant",
-    pronunciation: "/sɪɡˈnɪf.ə.kənt/",
-    partOfSpeech: "adjective",
-    definition: "Important or large enough to have an effect.",
-    level: "upper",
-    family: [["significance", "noun"], ["significant", "adjective"], ["significantly", "adverb"]],
-    sentences: ["The lesson made a significant difference.", "The result is significant for the whole team.", "Costs have increased significantly."],
-    question: "This was a ___ improvement.",
-    answer: "significant"
-  },
-  {
-    word: "subtle",
-    pronunciation: "/ˈsʌt̬.əl/",
-    partOfSpeech: "adjective",
-    definition: "Small but important and not easy to notice.",
-    level: "upper",
-    family: [["subtle", "adjective"], ["subtly", "adverb"], ["subtlety", "noun"]],
-    sentences: ["There is a subtle difference in meaning.", "Her tone subtly changed.", "Understanding cultural subtlety takes time."],
-    question: "The speaker made a ___ change in tone.",
-    answer: "subtle"
+﻿function loadData(fileName) {
+  const request = new XMLHttpRequest();
+  request.open("GET", `data/${fileName}`, false);
+  request.send();
+  if ((request.status < 200 || request.status >= 300) && request.status !== 0) {
+    throw new Error(`Could not load data/${fileName} (HTTP ${request.status}).`);
   }
-
-];
+  try {
+    return JSON.parse(request.responseText.replace(/^\uFEFF/, ""));
+  } catch (error) {
+    throw new Error(`Invalid JSON in data/${fileName}: ${error.message}`);
+  }
+}
+const lessons = loadData("lessons.json");
 
 lessons.forEach((lesson) => {
   if (!lesson.level) lesson.level = "beginner";
 });
 
-const translations = {
-  careful: { fr: "prudent", es: "cuidadoso", vi: "cẩn thận", fa: "محتاط", ko: "조심스러운", de: "vorsichtig", ar: "حذر", pt: "cuidadoso", zh: "小心" },
-  create: { fr: "créer", es: "crear", vi: "tạo ra", fa: "ایجاد کردن", ko: "만들다", de: "schaffen", ar: "ينشئ", pt: "criar", zh: "创造" },
-  improve: { fr: "améliorer", es: "mejorar", vi: "cải thiện", fa: "بهبود دادن", ko: "향상시키다", de: "verbessern", ar: "يحسن", pt: "melhorar", zh: "改善" },
-  confident: { fr: "confiant", es: "seguro", vi: "tự tin", fa: "مطمئن", ko: "자신감 있는", de: "selbstbewusst", ar: "واثق", pt: "confiante", zh: "自信" },
-  curious: { fr: "curieux", es: "curioso", vi: "tò mò", fa: "کنجکاو", ko: "호기심 많은", de: "neugierig", ar: "فضولي", pt: "curioso", zh: "好奇" },
-  prepare: { fr: "préparer", es: "preparar", vi: "chuẩn bị", fa: "آماده کردن", ko: "준비하다", de: "vorbereiten", ar: "يجهز", pt: "preparar", zh: "准备" },
-  recommend: { fr: "recommander", es: "recomendar", vi: "giới thiệu", fa: "توصیه کردن", ko: "추천하다", de: "empfehlen", ar: "يوصي", pt: "recomendar", zh: "推荐" },
-  perspective: { fr: "perspective", es: "perspectiva", vi: "góc nhìn", fa: "دیدگاه", ko: "관점", de: "Perspektive", ar: "منظور", pt: "perspectiva", zh: "视角" },
-  reliable: { fr: "fiable", es: "confiable", vi: "đáng tin cậy", fa: "قابل اعتماد", ko: "믿을 만한", de: "zuverlässig", ar: "موثوق", pt: "confiável", zh: "可靠" },
-  decide: { fr: "décider", es: "decidir", vi: "quyết định", fa: "تصمیم گرفتن", ko: "결정하다", de: "entscheiden", ar: "يقرر", pt: "decidir", zh: "决定" },
-  opportunity: { fr: "opportunité", es: "oportunidad", vi: "cơ hội", fa: "فرصت", ko: "기회", de: "Gelegenheit", ar: "فرصة", pt: "oportunidade", zh: "机会" },
-  negotiate: { fr: "négocier", es: "negociar", vi: "thương lượng", fa: "مذاکره کردن", ko: "협상하다", de: "verhandeln", ar: "يتفاوض", pt: "negociar", zh: "谈判" },
-  friendly: { fr: "amical", es: "amable", vi: "thân thiện", fa: "دوستانه", ko: "친절한", de: "freundlich", ar: "ودود", pt: "amigável", zh: "友好" },
-  patient: { fr: "patient", es: "paciente", vi: "kiên nhẫn", fa: "صبور", ko: "참을성 있는", de: "geduldig", ar: "صبور", pt: "paciente", zh: "耐心" },
-  comfortable: { fr: "confortable", es: "cómodo", vi: "thoải mái", fa: "راحت", ko: "편안한", de: "bequem", ar: "مريح", pt: "confortável", zh: "舒适" },
-  available: { fr: "disponible", es: "disponible", vi: "có sẵn", fa: "در دسترس", ko: "이용 가능한", de: "verfügbar", ar: "متاح", pt: "disponível", zh: "可用" },
-  communicate: { fr: "communiquer", es: "comunicar", vi: "giao tiếp", fa: "ارتباط برقرار کردن", ko: "소통하다", de: "kommunizieren", ar: "يتواصل", pt: "comunicar", zh: "沟通" },
-  flexible: { fr: "flexible", es: "flexible", vi: "linh hoạt", fa: "انعطاف‌پذیر", ko: "유연한", de: "flexibel", ar: "مرن", pt: "flexível", zh: "灵活" },
-  significant: { fr: "important", es: "significativo", vi: "đáng kể", fa: "قابل توجه", ko: "중요한", de: "bedeutend", ar: "مهم", pt: "significativo", zh: "重要" },
-  subtle: { fr: "subtil", es: "sutil", vi: "tinh tế", fa: "ظریف", ko: "미묘한", de: "subtil", ar: "دقيق", pt: "sutil", zh: "微妙" }
-};
+const translations = loadData("translations.json");
 
 const lessonWordLists = {
   beginner: "able about above accept across act add afraid after afternoon again age agree air airport alive all along already always animal answer apartment apple arrive art ask autumn away baby back bad bag bank bathroom beach beautiful because become bedroom believe below bicycle big bird birthday black blue book bottle boy bread breakfast bring brother bus busy buy cake call camera can car careful carry center chair change cheap child choose city class clean climb close clothes cloudy coffee cold college color come company cook country course cousin cry cup dance dark date day dear decide deep desk different difficult dinner doctor dog door down draw dream drink drive easy eat egg eight email empty enjoy enough every example excuse exercise eye face family famous farmer fast father feel festival find finish fire first fish five floor flower fly food foot football forget free friend friendly front full fun funny garden get gift girl give glass go good goodbye grand green group grow guess happy hard hat have help high home hope hospital hot house hungry idea important invite island jacket job juice jump just keep key kitchen know lake language large last late learn left lesson letter library life light like line listen little live long look love lunch machine make many market matter maybe meal meet middle milk minute mirror mobile money month morning mother mountain move movie music name near need never new night nine north nose notice number nurse office often old one open orange order other outside page paint park party pass pay people perfect phone picture place plan play please pocket police poor popular practice present price problem program purple put question quick quiet rain read ready red remember restaurant return rice right river road room round run safe school sea season second see sell send seven share sheep shop short show sick simple sister sit six sleep slow small smile snow some song soon sorry sound south speak spend sport spring stand start station stay step stop story street strong student study summer sun supermarket sure table take talk tall teach teacher team ten thank that theater there thing think thirsty three ticket time tired today together tomorrow town train travel tree try turn two understand university use usually vegetable visit wait walk wall want warm watch water way weather week welcome west what where white who window winter wish woman word work write wrong year yellow yes yesterday young zero",
@@ -261,15 +35,15 @@ const generatedDefinitions = {
 
 const generatedParts = ["noun", "verb", "adjective", "adverb"];
 const generatedTranslations = {
-  fr: { hello: "bonjour", family: "famille", school: "école", work: "travail", water: "eau", food: "nourriture", house: "maison", friend: "ami", happy: "heureux", important: "important" },
+  fr: { hello: "bonjour", family: "famille", school: "Ã©cole", work: "travail", water: "eau", food: "nourriture", house: "maison", friend: "ami", happy: "heureux", important: "important" },
   es: { hello: "hola", family: "familia", school: "escuela", work: "trabajo", water: "agua", food: "comida", house: "casa", friend: "amigo", happy: "feliz", important: "importante" },
-  vi: { hello: "xin chào", family: "gia đình", school: "trường học", work: "công việc", water: "nước", food: "thức ăn", house: "nhà", friend: "bạn", happy: "hạnh phúc", important: "quan trọng" },
-  fa: { hello: "سلام", family: "خانواده", school: "مدرسه", work: "کار", water: "آب", food: "غذا", house: "خانه", friend: "دوست", happy: "خوشحال", important: "مهم" },
-  ko: { hello: "안녕하세요", family: "가족", school: "학교", work: "일", water: "물", food: "음식", house: "집", friend: "친구", happy: "행복한", important: "중요한" },
-  de: { hello: "hallo", family: "Familie", school: "Schule", work: "Arbeit", water: "Wasser", food: "Essen", house: "Haus", friend: "Freund", happy: "glücklich", important: "wichtig" },
-  ar: { hello: "مرحبا", family: "عائلة", school: "مدرسة", work: "عمل", water: "ماء", food: "طعام", house: "منزل", friend: "صديق", happy: "سعيد", important: "مهم" },
-  pt: { hello: "olá", family: "família", school: "escola", work: "trabalho", water: "água", food: "comida", house: "casa", friend: "amigo", happy: "feliz", important: "importante" },
-  zh: { hello: "你好", family: "家庭", school: "学校", work: "工作", water: "水", food: "食物", house: "房子", friend: "朋友", happy: "快乐", important: "重要" }
+  vi: { hello: "xin chÃ o", family: "gia Ä‘Ã¬nh", school: "trÆ°á»ng há»c", work: "cÃ´ng viá»‡c", water: "nÆ°á»›c", food: "thá»©c Äƒn", house: "nhÃ ", friend: "báº¡n", happy: "háº¡nh phÃºc", important: "quan trá»ng" },
+  fa: { hello: "Ø³Ù„Ø§Ù…", family: "Ø®Ø§Ù†ÙˆØ§Ø¯Ù‡", school: "Ù…Ø¯Ø±Ø³Ù‡", work: "Ú©Ø§Ø±", water: "Ø¢Ø¨", food: "ØºØ°Ø§", house: "Ø®Ø§Ù†Ù‡", friend: "Ø¯ÙˆØ³Øª", happy: "Ø®ÙˆØ´Ø­Ø§Ù„", important: "Ù…Ù‡Ù…" },
+  ko: { hello: "ì•ˆë…•í•˜ì„¸ìš”", family: "ê°€ì¡±", school: "í•™êµ", work: "ì¼", water: "ë¬¼", food: "ìŒì‹", house: "ì§‘", friend: "ì¹œêµ¬", happy: "í–‰ë³µí•œ", important: "ì¤‘ìš”í•œ" },
+  de: { hello: "hallo", family: "Familie", school: "Schule", work: "Arbeit", water: "Wasser", food: "Essen", house: "Haus", friend: "Freund", happy: "glÃ¼cklich", important: "wichtig" },
+  ar: { hello: "Ù…Ø±Ø­Ø¨Ø§", family: "Ø¹Ø§Ø¦Ù„Ø©", school: "Ù…Ø¯Ø±Ø³Ø©", work: "Ø¹Ù…Ù„", water: "Ù…Ø§Ø¡", food: "Ø·Ø¹Ø§Ù…", house: "Ù…Ù†Ø²Ù„", friend: "ØµØ¯ÙŠÙ‚", happy: "Ø³Ø¹ÙŠØ¯", important: "Ù…Ù‡Ù…" },
+  pt: { hello: "olÃ¡", family: "famÃ­lia", school: "escola", work: "trabalho", water: "Ã¡gua", food: "comida", house: "casa", friend: "amigo", happy: "feliz", important: "importante" },
+  zh: { hello: "ä½ å¥½", family: "å®¶åº­", school: "å­¦æ ¡", work: "å·¥ä½œ", water: "æ°´", food: "é£Ÿç‰©", house: "æˆ¿å­", friend: "æœ‹å‹", happy: "å¿«ä¹", important: "é‡è¦" }
 };
 
 Object.entries(lessonWordLists).forEach(([level, words]) => {
@@ -285,8 +59,8 @@ Object.entries(lessonWordLists).forEach(([level, words]) => {
       definition: generatedDefinitions[level],
       level,
       family: [[word, partOfSpeech]],
-      sentences: [`I use the word “${word}” in English practice.`, `This lesson helps me understand “${word}”.`, `Can you use “${word}” in a sentence?`],
-      question: `Can you use “${word}” in a sentence?`,
+      sentences: [`I use the word â€œ${word}â€ in English practice.`, `This lesson helps me understand â€œ${word}â€.`, `Can you use â€œ${word}â€ in a sentence?`],
+      question: `Can you use â€œ${word}â€ in a sentence?`,
       answer: word
     });
   });
@@ -315,7 +89,7 @@ Object.keys(lessonWordLists).forEach((level) => {
       definition: generatedDefinitions[level],
       level,
       family: [[word, "word"]],
-      sentences: [`Practice the English word “${word}”.`, `Say “${word}” aloud.`, `Write a sentence with “${word}”.`],
+      sentences: [`Practice the English word â€œ${word}â€.`, `Say â€œ${word}â€ aloud.`, `Write a sentence with â€œ${word}â€.`],
       question: `Write the word: ${word}`,
       answer: word,
       translations: {}
@@ -338,7 +112,7 @@ const situations = {
   traffic: [
     ["Excuse me, is there another route?", "Ask for a different way to travel."],
     ["How long is the delay?", "Ask how much longer the traffic will last."],
-    ["I’m stuck in traffic.", "Explain why you will arrive late."],
+    ["Iâ€™m stuck in traffic.", "Explain why you will arrive late."],
     ["Could you let me merge?", "Politely ask another driver to let you enter the lane."]
   ],
   restaurant: [
@@ -360,8 +134,8 @@ const situations = {
     ["Could I get an audio guide?", "Ask for a learning guide."]
   ],
   stadium: [
-    ["Which section are you sitting in?", "Ask where someone’s seat is."],
-    ["What’s the score?", "Ask about the current result."],
+    ["Which section are you sitting in?", "Ask where someoneâ€™s seat is."],
+    ["Whatâ€™s the score?", "Ask about the current result."],
     ["Great play!", "React positively during a game."],
     ["Do you want to get a snack?", "Suggest buying food during a break."]
   ],
@@ -378,8 +152,8 @@ const situations = {
     ["Do you have this in a different size?", "Ask for another size of an item."],
     ["How much does this cost?", "Ask for the price."],
     ["Is there a discount on this?", "Ask whether the item is on sale."],
-    ["I’m just looking, thank you.", "Politely say you do not need help yet."],
-    ["Can I return this if it doesn’t fit?", "Ask about the store’s return policy."]
+    ["Iâ€™m just looking, thank you.", "Politely say you do not need help yet."],
+    ["Can I return this if it doesnâ€™t fit?", "Ask about the storeâ€™s return policy."]
   ],
   bus: [
     ["Does this bus go to the city center?", "Check whether you are on the right bus."],
@@ -407,8 +181,8 @@ const situations = {
     ["Do you have something for a headache?", "Ask for help choosing medicine."],
     ["How often should I take this?", "Ask about the instructions."],
     ["Are there any side effects?", "Ask about possible reactions to medicine."],
-    ["Do I need a prescription?", "Check whether a doctor’s prescription is required."],
-    ["I’m allergic to penicillin.", "Tell the pharmacist about an allergy."]
+    ["Do I need a prescription?", "Check whether a doctorâ€™s prescription is required."],
+    ["Iâ€™m allergic to penicillin.", "Tell the pharmacist about an allergy."]
   ]
 };
 
@@ -456,8 +230,8 @@ const situationLevelVariants = {
     traffic: [["Given the congestion, would you recommend taking the expressway?", "Discuss a route strategically."], ["I am concerned that the delay may affect my appointment.", "Explain a consequence professionally."], ["Would you be willing to let me merge when there is an opening?", "Make a careful traffic request."]],
     restaurant: [["Could you accommodate a dietary restriction if we modify this dish?", "Discuss a special requirement."], ["Would you be able to recommend a wine that complements the main course?", "Request an expert recommendation."], ["There appears to be an error on the bill; could we review it?", "Resolve a payment problem politely."]],
     park: [["This park seems considerably quieter early in the morning.", "Make an observation with nuance."], ["Would you be interested in joining a walking group sometime?", "Extend a social invitation."], ["Could you tell me whether the trail is accessible in winter?", "Ask for detailed practical information."]],
-    museum: [["How does this work reflect the social context in which it was created?", "Ask an analytical question."], ["I was struck by the contrast between the two collections.", "Express a developed opinion."], ["Would you recommend attending the curator’s lecture?", "Ask for a cultural recommendation."]],
-    stadium: [["The team’s defensive strategy has changed considerably in the second half.", "Discuss the game analytically."], ["Do you think the coach’s decision will influence the outcome?", "Invite an opinion."], ["Let’s arrange a meeting point in case we get separated.", "Make a practical event plan."]],
+    museum: [["How does this work reflect the social context in which it was created?", "Ask an analytical question."], ["I was struck by the contrast between the two collections.", "Express a developed opinion."], ["Would you recommend attending the curatorâ€™s lecture?", "Ask for a cultural recommendation."]],
+    stadium: [["The teamâ€™s defensive strategy has changed considerably in the second half.", "Discuss the game analytically."], ["Do you think the coachâ€™s decision will influence the outcome?", "Invite an opinion."], ["Letâ€™s arrange a meeting point in case we get separated.", "Make a practical event plan."]],
     "coffee shop": [["Could you prepare this with an alternative milk and no added syrup?", "Place a detailed order."], ["Would it be possible to reserve a quiet table for a short meeting?", "Make a formal request."], ["I am looking for a coffee with a balanced, less acidic flavor profile.", "Describe a preference precisely."]],
     mall: [["Could you clarify the warranty terms before I make the purchase?", "Ask for important product information."], ["I would like to compare the cost after the current promotion is applied.", "Discuss price and discounts."], ["Would it be possible to exchange this item without the original packaging?", "Discuss a return exception."]],
     bus: [["Could you confirm whether this service connects with the airport line?", "Check a complex route."], ["In the event of a delay, where should passengers look for updates?", "Ask about contingency information."], ["I would appreciate it if you could let me know before the final stop.", "Make a formal request."]],
@@ -470,26 +244,26 @@ const situationLevelVariants = {
 const idioms = [
   ["Break the ice", "Make people feel more comfortable when they first meet.", "I told a joke to break the ice."],
   ["Piece of cake", "Something very easy to do.", "The first exercise was a piece of cake."],
-  ["Under the weather", "Feeling ill or not at your best.", "I’m a little under the weather today."],
+  ["Under the weather", "Feeling ill or not at your best.", "Iâ€™m a little under the weather today."],
   ["Hit the nail on the head", "Say or do exactly the right thing.", "You hit the nail on the head with that explanation."],
   ["Once in a blue moon", "Very rarely.", "We eat at that expensive restaurant once in a blue moon."],
-  ["It’s up to you", "The decision is yours.", "We can go now or later—it’s up to you."]
+  ["Itâ€™s up to you", "The decision is yours.", "We can go now or laterâ€”itâ€™s up to you."]
 ];
 
 const abbreviations = [
   ["ASAP", "as soon as possible", "Please send me the address ASAP."],
   ["FYI", "for your information", "FYI, the museum closes at six."],
   ["BTW", "by the way", "BTW, did you see the new exhibit?"],
-  ["IDK", "I don’t know", "IDK what time the match starts."],
+  ["IDK", "I donâ€™t know", "IDK what time the match starts."],
   ["IMO", "in my opinion", "IMO, this is the best seat in the stadium."],
   ["RSVP", "please respond", "Please RSVP before Friday."]
 ];
 
 const smallTalk = [
-  ["How’s your day going?", "A friendly, general opener."],
+  ["Howâ€™s your day going?", "A friendly, general opener."],
   ["Have you been here before?", "Useful when meeting someone in a new place."],
   ["What brings you here?", "Ask why someone is at an event or location."],
-  ["That’s interesting—tell me more.", "Show interest and keep the conversation going."],
+  ["Thatâ€™s interestingâ€”tell me more.", "Show interest and keep the conversation going."],
   ["How do you know the host?", "Useful at a party or social event."],
   ["It was nice talking with you.", "End a conversation politely."]
 ];
@@ -561,7 +335,7 @@ const levelResources = {
       ["beginner-coffee", "Coffee shop", "A small coffee, please.", "Order a simple drink."],
       ["beginner-bus", "Bus", "Does this bus go downtown?", "Check a simple route."],
       ["beginner-restaurant", "Restaurant", "A table for two, please.", "Ask for a table."],
-      ["beginner-intro", "Meeting people", "Hi, I’m Sam. Nice to meet you.", "Introduce yourself."]
+      ["beginner-intro", "Meeting people", "Hi, Iâ€™m Sam. Nice to meet you.", "Introduce yourself."]
     ]
   },
   elementary: {
@@ -580,7 +354,7 @@ const levelResources = {
     abbreviations: [
       ["ASAP", "as soon as possible", "Please reply ASAP."],
       ["FYI", "for your information", "FYI, the shop closes at six."],
-      ["ETA", "estimated time of arrival", "What is the bus’s ETA?"],
+      ["ETA", "estimated time of arrival", "What is the busâ€™s ETA?"],
       ["DIY", "do it yourself", "This is a simple DIY project."]
     ],
     speak: [
@@ -756,7 +530,7 @@ const academicWords = {
     ["answer", "a response to a question", "Write a clear answer."], ["example", "something that shows an idea", "Give one example."],
     ["fact", "information known to be true", "Check the fact."], ["idea", "a thought or plan", "Share your idea."],
     ["method", "a way of doing something", "This method is simple."], ["reason", "a cause or explanation", "Give a reason."],
-    ["result", "what happens after an action", "The result was positive."], ["topic", "the subject being discussed", "Today’s topic is travel."],
+    ["result", "what happens after an action", "The result was positive."], ["topic", "the subject being discussed", "Todayâ€™s topic is travel."],
     ["question", "something asked to get information", "Ask a question."], ["explain", "make an idea clear", "Please explain the answer."]
   ],
   elementary: [
@@ -908,7 +682,7 @@ function renderConjugator() {
   const panel = $("#resourcePanel");
   panel.innerHTML = `
     <div class="conjugator">
-      <span class="eyebrow">Grammar tool · offline</span>
+      <span class="eyebrow">Grammar tool Â· offline</span>
       <h2>Conjugate an English verb</h2>
       <p class="resource-intro">Enter a base-form verb to see its key forms and ten useful tense examples.</p>
       <form class="conjugator-form" id="conjugatorForm" novalidate>
@@ -936,7 +710,7 @@ function renderConjugator() {
       return;
     }
     if (!/^[a-z]+$/.test(value)) {
-      error.textContent = "Use one English verb with letters only, such as “study” or “write.”";
+      error.textContent = "Use one English verb with letters only, such as â€œstudyâ€ or â€œwrite.â€";
       results.innerHTML = "";
       input.setAttribute("aria-invalid", "true");
       return;
@@ -958,9 +732,9 @@ function renderConjugator() {
         <div><span class="resource-label">Verb</span><strong>${escapeConjugatorHtml(conjugated.base)}</strong></div>
         <span class="conjugator-badge">${conjugated.irregular ? "Irregular verb" : "Regular rule"}</span>
       </div>
-      <div class="conjugator-form-grid">${forms.map(([label, formValue]) => `<div class="conjugator-form-card"><span>${label}</span><strong>${escapeConjugatorHtml(formValue)}</strong><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(formValue)}">▶ Listen</button></div>`).join("")}</div>
+      <div class="conjugator-form-grid">${forms.map(([label, formValue]) => `<div class="conjugator-form-card"><span>${label}</span><strong>${escapeConjugatorHtml(formValue)}</strong><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(formValue)}">â–¶ Listen</button></div>`).join("")}</div>
       <div class="tense-heading"><h3>Major tense examples</h3><span>Listen and notice the verb pattern</span></div>
-      <div class="tense-grid">${tenseExamples.map(([label, example]) => `<article class="tense-card"><span>${label}</span><p>${escapeConjugatorHtml(example)}</p><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(example)}">▶ Listen</button></article>`).join("")}</div>
+      <div class="tense-grid">${tenseExamples.map(([label, example]) => `<article class="tense-card"><span>${label}</span><p>${escapeConjugatorHtml(example)}</p><button class="phrase-speak conjugator-speak" type="button" data-speak="${escapeConjugatorHtml(example)}">â–¶ Listen</button></article>`).join("")}</div>
       <div class="conjugator-practice">
         <strong>Quick practice</strong>
         <span>What is the past participle of <b>${escapeConjugatorHtml(conjugated.base)}</b>?</span>
@@ -984,7 +758,7 @@ function renderConjugator() {
         practiceFeedback.style.color = "var(--green)";
       } else {
         recordActivity(false);
-        practiceFeedback.textContent = `Not quite. The past participle is “${participle}.”`;
+        practiceFeedback.textContent = `Not quite. The past participle is â€œ${participle}.â€`;
         practiceFeedback.style.color = "var(--orange)";
       }
     });
@@ -998,12 +772,12 @@ function renderConjugator() {
 
 const placementQuestions = [
   { level: "beginner", prompt: "Choose the correct sentence.", choices: ["She go to school.", "She goes to school.", "She going school."], answer: 1 },
-  { level: "beginner", prompt: "What does “hungry” mean?", choices: ["Wanting food", "Feeling cold", "Being late"], answer: 0 },
+  { level: "beginner", prompt: "What does â€œhungryâ€ mean?", choices: ["Wanting food", "Feeling cold", "Being late"], answer: 0 },
   { level: "elementary", prompt: "Complete: I have lived here ___ 2022.", choices: ["for", "since", "during"], answer: 1 },
-  { level: "elementary", prompt: "Which word is closest to “begin”?", choices: ["finish", "start", "forget"], answer: 1 },
+  { level: "elementary", prompt: "Which word is closest to â€œbeginâ€?", choices: ["finish", "start", "forget"], answer: 1 },
   { level: "intermediate", prompt: "Complete: If I had more time, I ___ another language.", choices: ["learn", "will learn", "would learn"], answer: 2 },
   { level: "intermediate", prompt: "Choose the natural collocation.", choices: ["make a decision", "do a decision", "take a decisioning"], answer: 0 },
-  { level: "upper", prompt: "“Although” introduces a:", choices: ["contrast", "cause", "definition"], answer: 0 },
+  { level: "upper", prompt: "â€œAlthoughâ€ introduces a:", choices: ["contrast", "cause", "definition"], answer: 0 },
   { level: "upper", prompt: "Choose the most precise option: The evidence was ___ enough to support the claim.", choices: ["sufficient", "many", "quickly"], answer: 0 }
 ];
 
@@ -1059,7 +833,7 @@ function renderPlacementTest() {
   const finish = () => {
     const score = answers.reduce((total, answer, questionIndex) => total + (answer === placementQuestions[questionIndex].answer ? 1 : 0), 0);
     const level = score <= 2 ? "beginner" : score <= 4 ? "elementary" : score <= 6 ? "intermediate" : "upper";
-    const labels = { beginner: "Beginner · A1", elementary: "Elementary · A2", intermediate: "Intermediate · B1", upper: "Upper-intermediate · B2" };
+    const labels = { beginner: "Beginner Â· A1", elementary: "Elementary Â· A2", intermediate: "Intermediate Â· B1", upper: "Upper-intermediate Â· B2" };
     localStorage.setItem("llapp-recommended-level", level);
     result.hidden = false;
     result.innerHTML = `<strong>Your recommended level: ${labels[level]}</strong><span>You scored ${score} out of ${placementQuestions.length}. LLapp has selected this level in your learning library.</span><button class="primary-button" id="usePlacementLevel" type="button">Start learning at this level</button>`;
@@ -1117,11 +891,11 @@ function renderLesson() {
   $("#answerFeedback").textContent = "";
   $("#pronunciationFeedback").textContent = "";
   $("#saveButton").classList.remove("saved");
-  $("#saveButton").textContent = "♡";
+  $("#saveButton").textContent = "â™¡";
   $("#sentenceCount").textContent = `${lesson.sentences.length} examples`;
   updateMasteryUI();
   updateReviewSummary();
-  $("#heroLevel").textContent = `English · ${$("#levelSelect").selectedOptions[0].text.replace(/ · [A-Z]\d$/, "")}`;
+  $("#heroLevel").textContent = `English Â· ${$("#levelSelect").selectedOptions[0].text.replace(/ Â· [A-Z]\d$/, "")}`;
   if ($("#wordSelect")) {
     const filteredLessons = lessons.filter((item) => item.level === $("#levelSelect").value);
     $("#wordSelect").value = String(filteredLessons.indexOf(lesson));
@@ -1154,7 +928,7 @@ function renderLesson() {
       beginner: "Goal: recognize the word, say it clearly, and use it in one simple sentence.",
       elementary: "Goal: recall the word and use it in a practical everyday sentence.",
       intermediate: "Goal: explain the word and use it naturally in context.",
-      upper: "Goal: distinguish the word’s nuance and use it precisely."
+      upper: "Goal: distinguish the wordâ€™s nuance and use it precisely."
     };
     $("#planGoal").textContent = levelGoals[$("#levelSelect").value];
   }
@@ -1176,21 +950,21 @@ function renderLesson() {
 
   function visualForWord(word) {
     const visuals = {
-      careful: ["🧤", "Handle the glass gently and pay attention."],
-      create: ["🎨", "Imagine making something new from an idea."],
-      improve: ["📈", "Picture progress moving upward step by step."],
-      confident: ["🌟", "Stand tall and speak with confidence."],
-      curious: ["🔎", "Look closely and ask a question."],
-      friendly: ["😊", "Use a warm smile to welcome someone."],
-      patient: ["⏳", "Wait calmly while something takes time."],
-      comfortable: ["🛋️", "Relax in a comfortable place."],
-      available: ["🟢", "A green light means something is available."],
-      communicate: ["💬", "Share an idea clearly with another person."],
-      flexible: ["🤸", "Adapt when a plan changes."],
-      significant: ["💡", "Notice an important idea or change."],
-      subtle: ["🪶", "Look for a small detail that is easy to miss."]
+      careful: ["ðŸ§¤", "Handle the glass gently and pay attention."],
+      create: ["ðŸŽ¨", "Imagine making something new from an idea."],
+      improve: ["ðŸ“ˆ", "Picture progress moving upward step by step."],
+      confident: ["ðŸŒŸ", "Stand tall and speak with confidence."],
+      curious: ["ðŸ”Ž", "Look closely and ask a question."],
+      friendly: ["ðŸ˜Š", "Use a warm smile to welcome someone."],
+      patient: ["â³", "Wait calmly while something takes time."],
+      comfortable: ["ðŸ›‹ï¸", "Relax in a comfortable place."],
+      available: ["ðŸŸ¢", "A green light means something is available."],
+      communicate: ["ðŸ’¬", "Share an idea clearly with another person."],
+      flexible: ["ðŸ¤¸", "Adapt when a plan changes."],
+      significant: ["ðŸ’¡", "Notice an important idea or change."],
+      subtle: ["ðŸª¶", "Look for a small detail that is easy to miss."]
     };
-    return visuals[word] || ["📚", "Connect this word to a picture, action, or personal memory."];
+    return visuals[word] || ["ðŸ“š", "Connect this word to a picture, action, or personal memory."];
   }
 
   function renderWordVisual() {
@@ -1199,7 +973,7 @@ function renderLesson() {
   }
 
   $("#familyList").innerHTML = lesson.family
-    .map(([word, type]) => `<span class="family-word"><strong>${word}</strong> · ${type}</span>`)
+    .map(([word, type]) => `<span class="family-word"><strong>${word}</strong> Â· ${type}</span>`)
     .join("");
 
   $("#sentences").innerHTML = lesson.sentences
@@ -1207,7 +981,7 @@ function renderLesson() {
       <div class="sentence">
         <span class="sentence-number">${index + 1}</span>
         <span class="sentence-text">${sentence}</span>
-        <button class="sentence-listen" type="button" data-sentence="${index}" aria-label="Listen to sentence ${index + 1}">▶</button>
+        <button class="sentence-listen" type="button" data-sentence="${index}" aria-label="Listen to sentence ${index + 1}">â–¶</button>
       </div>
     `)
     .join("");
@@ -1261,7 +1035,7 @@ function renderScoreDashboard() {
   const level = $("#levelSelect").value;
   const data = getScoreData()[level] || { correct: 0, attempted: 0, history: [] };
   const accuracy = data.attempted ? Math.round((data.correct / data.attempted) * 100) : 0;
-  const grade = accuracy >= 90 ? "A" : accuracy >= 80 ? "B" : accuracy >= 70 ? "C" : accuracy >= 60 ? "D" : "—";
+  const grade = accuracy >= 90 ? "A" : accuracy >= 80 ? "B" : accuracy >= 70 ? "C" : accuracy >= 60 ? "D" : "â€”";
   const history = data.history.slice(-7);
   const bars = history.map((value, index) => `<div class="score-bar" style="height:${Math.max(value, 8)}%"><span>${index + 1}</span></div>`).join("");
   return `
@@ -1313,13 +1087,13 @@ function renderResources(type) {
   if (type === "phrasal-verbs") {
     const level = $("#levelSelect").selectedOptions[0].text;
     const phrasalItems = currentLevelResources("phrasal");
-    panel.innerHTML = `<span class="eyebrow">Everyday English · ${level}</span><h2>Phrasal verbs for your level</h2><p class="resource-intro">Learn 50 phrasal verbs selected for your current level.</p><div class="resource-count">${phrasalItems.length} phrasal verbs</div>${renderResourceGrid(phrasalItems, "Meaning", true)}`;
+    panel.innerHTML = `<span class="eyebrow">Everyday English Â· ${level}</span><h2>Phrasal verbs for your level</h2><p class="resource-intro">Learn 50 phrasal verbs selected for your current level.</p><div class="resource-count">${phrasalItems.length} phrasal verbs</div>${renderResourceGrid(phrasalItems, "Meaning", true)}`;
     return;
   }
   if (type === "academic-words") {
     const level = $("#levelSelect").selectedOptions[0].text;
     const items = academicWords[$("#levelSelect").value] || [];
-    panel.innerHTML = `<span class="eyebrow">Study and academic English · ${level}</span><h2>Academic words for your level</h2><p class="resource-intro">Use these words to discuss ideas, evidence, research, and explanations more clearly.</p>${renderResourceGrid(items, "Meaning", true)}`;
+    panel.innerHTML = `<span class="eyebrow">Study and academic English Â· ${level}</span><h2>Academic words for your level</h2><p class="resource-intro">Use these words to discuss ideas, evidence, research, and explanations more clearly.</p>${renderResourceGrid(items, "Meaning", true)}`;
     return;
   }
   if (type === "situations") {
@@ -1328,17 +1102,17 @@ function renderResources(type) {
     const levelLabel = $("#levelSelect").selectedOptions[0].text;
     const phrases = situationLevelVariants[level]?.[place] || situations[place];
     const visual = situationVisual(place);
-    panel.innerHTML = `<span class="eyebrow">Useful phrases</span><h2>Speak naturally in real situations <span class="situation-level">${levelLabel}</span></h2><p class="resource-intro">These phrases are selected for ${levelLabel}. Listen, repeat, and use them in context.</p><div class="situation-picker">${Object.keys(situations).map((name) => `<button class="situation-button ${name === place ? "active" : ""}" data-place="${name}" type="button">${name[0].toUpperCase() + name.slice(1)}</button>`).join("")}</div><div class="situation-visual"><span class="situation-visual-icon" aria-hidden="true">${visual[0]}</span><span><strong>Visualize the situation</strong><span>${visual[1]}</span></span></div><div class="phrase-list">${phrases.map(([phrase, meaning]) => `<div class="phrase-line"><strong>${phrase}</strong><span>${meaning}</span><button class="phrase-speak" type="button" data-phrase="${phrase.replace(/"/g, "&quot;")}" aria-label="Listen and repeat: ${phrase.replace(/"/g, "&quot;")}">▶ Listen & repeat</button></div>`).join("")}</div>`;
+    panel.innerHTML = `<span class="eyebrow">Useful phrases</span><h2>Speak naturally in real situations <span class="situation-level">${levelLabel}</span></h2><p class="resource-intro">These phrases are selected for ${levelLabel}. Listen, repeat, and use them in context.</p><div class="situation-picker">${Object.keys(situations).map((name) => `<button class="situation-button ${name === place ? "active" : ""}" data-place="${name}" type="button">${name[0].toUpperCase() + name.slice(1)}</button>`).join("")}</div><div class="situation-visual"><span class="situation-visual-icon" aria-hidden="true">${visual[0]}</span><span><strong>Visualize the situation</strong><span>${visual[1]}</span></span></div><div class="phrase-list">${phrases.map(([phrase, meaning]) => `<div class="phrase-line"><strong>${phrase}</strong><span>${meaning}</span><button class="phrase-speak" type="button" data-phrase="${phrase.replace(/"/g, "&quot;")}" aria-label="Listen and repeat: ${phrase.replace(/"/g, "&quot;")}">â–¶ Listen & repeat</button></div>`).join("")}</div>`;
     panel.querySelectorAll(".situation-button").forEach((button) => button.addEventListener("click", () => {
       panel.dataset.place = button.dataset.place;
       renderResources("situations");
     }));
     panel.querySelectorAll(".phrase-speak").forEach((button) => button.addEventListener("click", () => {
       speakText(button.dataset.phrase, button);
-      button.textContent = "🔊 Playing";
+      button.textContent = "ðŸ”Š Playing";
       button.classList.add("playing");
       window.setTimeout(() => {
-        button.textContent = "▶ Listen & repeat";
+        button.textContent = "â–¶ Listen & repeat";
         button.classList.remove("playing");
       }, Math.max(1600, button.dataset.phrase.length * 55));
     }));
@@ -1347,32 +1121,32 @@ function renderResources(type) {
 
   function situationVisual(place) {
     const visuals = {
-      traffic: ["🚦", "Cars, buses, signs, and people moving through the street."],
-      restaurant: ["🍽️", "A table, a menu, and a conversation with your server."],
-      park: ["🌳", "A relaxed outdoor place for walking and friendly conversation."],
-      museum: ["🖼️", "Exhibits, artwork, and questions about what you see."],
-      stadium: ["🏟️", "Fans, seats, snacks, and exciting moments during a game."],
-      "coffee shop": ["☕", "A counter, a barista, and your drink order."],
-      mall: ["🛍️", "Stores, fitting rooms, prices, and helpful staff."],
-      bus: ["🚌", "A route, a ticket, a seat, and the right stop."],
-      airport: ["✈️", "Check-in, security, gates, and departure announcements."],
-      hotel: ["🛎️", "A reservation, a room, and a helpful front desk."],
-      pharmacy: ["💊", "A pharmacist, medicine, instructions, and health questions."]
+      traffic: ["ðŸš¦", "Cars, buses, signs, and people moving through the street."],
+      restaurant: ["ðŸ½ï¸", "A table, a menu, and a conversation with your server."],
+      park: ["ðŸŒ³", "A relaxed outdoor place for walking and friendly conversation."],
+      museum: ["ðŸ–¼ï¸", "Exhibits, artwork, and questions about what you see."],
+      stadium: ["ðŸŸï¸", "Fans, seats, snacks, and exciting moments during a game."],
+      "coffee shop": ["â˜•", "A counter, a barista, and your drink order."],
+      mall: ["ðŸ›ï¸", "Stores, fitting rooms, prices, and helpful staff."],
+      bus: ["ðŸšŒ", "A route, a ticket, a seat, and the right stop."],
+      airport: ["âœˆï¸", "Check-in, security, gates, and departure announcements."],
+      hotel: ["ðŸ›Žï¸", "A reservation, a room, and a helpful front desk."],
+      pharmacy: ["ðŸ’Š", "A pharmacist, medicine, instructions, and health questions."]
     };
-    return visuals[place] || ["📍", "Imagine yourself in this everyday situation."];
+    return visuals[place] || ["ðŸ“", "Imagine yourself in this everyday situation."];
   }
   if (type === "speak-practice") {
     const level = $("#levelSelect").selectedOptions[0].text;
     const levelSpeak = currentLevelResources("speak");
     const options = levelSpeak
-      .map(([key, situation, phrase]) => `<option value="${key}">${situation} · ${phrase}</option>`)
+      .map(([key, situation, phrase]) => `<option value="${key}">${situation} Â· ${phrase}</option>`)
       .join("");
     const speakData = Object.fromEntries(levelSpeak.map(([key, situation, phrase, description]) => [key, [situation, phrase, description]]));
     panel.innerHTML = `
       <div class="speak-practice">
         <div class="speak-toolbar">
           <div>
-            <span class="eyebrow">Listen · Practice · Compare</span>
+            <span class="eyebrow">Listen Â· Practice Â· Compare</span>
             <h2>Speak a useful phrase <span class="situation-level">${level}</span></h2>
           </div>
           <label>
@@ -1384,8 +1158,8 @@ function renderResources(type) {
         <p class="speak-phrase" id="speakPhrase"></p>
         <p class="speak-description" id="speakDescription"></p>
         <div class="speak-actions">
-          <button class="primary-button" id="speakListenButton" type="button">▶ Listen</button>
-          <button class="secondary-button" id="speakPracticeButton" type="button">◎ Your turn</button>
+          <button class="primary-button" id="speakListenButton" type="button">â–¶ Listen</button>
+          <button class="secondary-button" id="speakPracticeButton" type="button">â—Ž Your turn</button>
           <label>
             <span class="visually-hidden">Playback speed</span>
             <select id="speakSpeedSelect" aria-label="Playback speed">
@@ -1431,7 +1205,7 @@ function renderResources(type) {
       .join("");
     const listeningSentence = lesson.sentences[0];
     panel.innerHTML = `
-      <span class="eyebrow">Practice activities · ${$("#levelSelect").selectedOptions[0].text}</span>
+      <span class="eyebrow">Practice activities Â· ${$("#levelSelect").selectedOptions[0].text}</span>
       <h2>Use your language to learn English</h2>
       <p class="resource-intro">Choose a language, write the translation, and identify the word type. Each activity gives clear feedback and adds to your score.</p>
       ${renderScoreDashboard()}
@@ -1467,7 +1241,7 @@ function renderResources(type) {
         <article class="activity-card">
           <h3>5. Listen and type</h3>
           <p>Listen to one example sentence, then type the word you hear.</p>
-          <button class="secondary-button activity-listen" id="listeningButton" type="button">▶ Listen to the sentence</button>
+          <button class="secondary-button activity-listen" id="listeningButton" type="button">â–¶ Listen to the sentence</button>
           <div class="activity-controls">
             <input id="listeningAnswer" type="text" placeholder="Type the missing word" autocomplete="off">
             <button class="primary-button" id="listeningCheck" type="button">Check</button>
@@ -1482,7 +1256,7 @@ function renderResources(type) {
   const data = type === "idioms" ? currentLevelResources("idioms") : smallTalk;
   const title = type === "idioms" ? "Idioms and their meaning" : "Small talk starters";
   const level = $("#levelSelect").selectedOptions[0].text;
-  panel.innerHTML = `<span class="eyebrow">${type.replace("-", " ")} · ${level}</span><h2>${title} for your level</h2><p class="resource-intro">Save the expressions you want to use in your next conversation.</p>${renderResourceGrid(data, type === "idioms" ? "Meaning" : "Use")}`;
+  panel.innerHTML = `<span class="eyebrow">${type.replace("-", " ")} Â· ${level}</span><h2>${title} for your level</h2><p class="resource-intro">Save the expressions you want to use in your next conversation.</p>${renderResourceGrid(data, type === "idioms" ? "Meaning" : "Use")}`;
 }
 
 function setupActivities(panel) {
@@ -1516,7 +1290,7 @@ function setupActivities(panel) {
     if (button.dataset.meaning || button.dataset.family) return;
     const result = panel.querySelector("#partOfSpeechFeedback");
     const correct = button.dataset.choice === lesson.partOfSpeech;
-    result.textContent = correct ? "Correct!" : `Not quite. “${lesson.word}” is a ${lesson.partOfSpeech}.`;
+    result.textContent = correct ? "Correct!" : `Not quite. â€œ${lesson.word}â€ is a ${lesson.partOfSpeech}.`;
     result.style.color = correct ? "var(--green)" : "var(--orange)";
     if (correct) button.classList.add("correct");
     recordActivity(correct);
@@ -1532,7 +1306,7 @@ function setupActivities(panel) {
   panel.querySelectorAll("[data-family]").forEach((button) => button.addEventListener("click", () => {
     const correct = button.dataset.family === familyAnswer;
     const result = panel.querySelector("#familyFeedback");
-    result.textContent = correct ? "Correct! This word is part of the family." : `Not quite. A family word is “${familyAnswer}.”`;
+    result.textContent = correct ? "Correct! This word is part of the family." : `Not quite. A family word is â€œ${familyAnswer}.â€`;
     result.style.color = correct ? "var(--green)" : "var(--orange)";
     if (correct) button.classList.add("correct");
     recordActivity(correct);
@@ -1544,7 +1318,7 @@ function setupActivities(panel) {
     const answer = panel.querySelector("#listeningAnswer").value.trim().toLocaleLowerCase();
     const result = panel.querySelector("#listeningFeedback");
     const correct = answer === lesson.word.toLocaleLowerCase();
-    result.textContent = !answer ? "Type the word you heard first." : correct ? "Correct! You heard the target word." : `Not quite. The word was “${lesson.word}.”`;
+    result.textContent = !answer ? "Type the word you heard first." : correct ? "Correct! You heard the target word." : `Not quite. The word was â€œ${lesson.word}.â€`;
     result.style.color = correct ? "var(--green)" : "var(--orange)";
     if (answer) recordActivity(correct);
   });
@@ -1592,7 +1366,7 @@ function setupSpeakPractice(panel, lessonsForLevel = speakLessons) {
     utterance.lang = "en-US";
     utterance.rate = Number(speedSelect.value);
     utterance.onstart = () => setStatus("Listen closely, then try it in your own voice.");
-    utterance.onend = () => setStatus("Ready when you are. Select “Your turn” to practice.");
+    utterance.onend = () => setStatus("Ready when you are. Select â€œYour turnâ€ to practice.");
     utterance.onerror = () => setStatus("The phrase could not be played. Check your audio settings and try again.", "error");
     window.speechSynthesis.speak(utterance);
   });
@@ -1608,7 +1382,7 @@ function setupSpeakPractice(panel, lessonsForLevel = speakLessons) {
     recognition.interimResults = false;
     practiceButton.disabled = true;
     phraseSelect.disabled = true;
-    setStatus("Listening… Say the phrase, then wait a moment.");
+    setStatus("Listeningâ€¦ Say the phrase, then wait a moment.");
     recognition.onresult = (event) => {
       const heard = event.results[0] && event.results[0][0] ? event.results[0][0].transcript.trim() : "";
       const target = getLesson()[1];
@@ -1616,7 +1390,7 @@ function setupSpeakPractice(panel, lessonsForLevel = speakLessons) {
       transcriptElement.textContent = heard || "No words were recognized.";
       const matched = normalize(heard) === normalize(target);
       comparison.textContent = matched
-        ? "The recognized words match the phrase. This checks the transcript only—not how the words were pronounced."
+        ? "The recognized words match the phrase. This checks the transcript onlyâ€”not how the words were pronounced."
         : "The transcript is not an exact match. Listen again, compare the words, and try once more.";
       feedback.hidden = false;
       setStatus("Your transcript is ready. Compare the recognized words with the phrase.");
@@ -1683,7 +1457,7 @@ function practicePronunciation() {
     .getUserMedia({ audio: true })
     .then((stream) => {
       stream.getTracks().forEach((track) => track.stop());
-      $("#pronunciationFeedback").textContent = `Microphone ready. Say “${lesson.word}” clearly, then compare with the audio.`;
+      $("#pronunciationFeedback").textContent = `Microphone ready. Say â€œ${lesson.word}â€ clearly, then compare with the audio.`;
     })
     .catch(() => {
       $("#pronunciationFeedback").textContent = "Microphone permission was not granted.";
@@ -1703,7 +1477,7 @@ function checkAnswer() {
     feedback.textContent = "Type an answer before checking.";
     feedback.style.color = "var(--orange)";
   } else {
-    feedback.textContent = `Almost. Think about the word “${lesson.word}.”`;
+    feedback.textContent = `Almost. Think about the word â€œ${lesson.word}.â€`;
     feedback.style.color = "var(--orange)";
   }
 }
@@ -1718,7 +1492,7 @@ $("#answerInput").addEventListener("keydown", (event) => {
 });
 $("#saveButton").addEventListener("click", () => {
   $("#saveButton").classList.toggle("saved");
-  $("#saveButton").textContent = $("#saveButton").classList.contains("saved") ? "♥" : "♡";
+  $("#saveButton").textContent = $("#saveButton").classList.contains("saved") ? "â™¥" : "â™¡";
 });
 $("#wordSelect").addEventListener("change", (event) => {
   const filteredLessons = lessons.filter((item) => item.level === $("#levelSelect").value);

@@ -1,9 +1,11 @@
-const CACHE_NAME = "llapp-v6";
+const CACHE_NAME = "llapp-v7";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./data/lessons.json",
+  "./data/translations.json",
   "./manifest.webmanifest",
   "./icons/icon.svg"
 ];

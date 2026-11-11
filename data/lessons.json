@@ -1,0 +1,610 @@
+﻿[
+    {
+        "word":  "careful",
+        "pronunciation":  "/Ëˆker.fÉ™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Giving attention to avoid mistakes, danger, or harm.",
+        "family":  [
+                       [
+                           "care",
+                           "noun / verb"
+                       ],
+                       [
+                           "careful",
+                           "adjective"
+                       ],
+                       [
+                           "carefully",
+                           "adverb"
+                       ],
+                       [
+                           "carelessness",
+                           "noun"
+                       ]
+                   ],
+        "sentences":  [
+                          "Be careful when you cross the street.",
+                          "She carefully checked the answer before submitting it.",
+                          "His carelessness caused a small problem."
+                      ],
+        "question":  "Please be ___ with that glass.",
+        "answer":  "careful"
+    },
+    {
+        "word":  "create",
+        "pronunciation":  "/kriËˆeÉªt/",
+        "partOfSpeech":  "verb",
+        "definition":  "To make something new or cause something to happen.",
+        "family":  [
+                       [
+                           "create",
+                           "verb"
+                       ],
+                       [
+                           "creative",
+                           "adjective"
+                       ],
+                       [
+                           "creation",
+                           "noun"
+                       ],
+                       [
+                           "creatively",
+                           "adverb"
+                       ]
+                   ],
+        "sentences":  [
+                          "We create a new lesson every week.",
+                          "She has a creative way of explaining grammar.",
+                          "The creation of this app took careful planning."
+                      ],
+        "question":  "Designers ___ useful tools for learners.",
+        "answer":  "create"
+    },
+    {
+        "word":  "improve",
+        "pronunciation":  "/ÉªmËˆpruËv/",
+        "partOfSpeech":  "verb",
+        "definition":  "To become better or make something better.",
+        "family":  [
+                       [
+                           "improve",
+                           "verb"
+                       ],
+                       [
+                           "improvement",
+                           "noun"
+                       ],
+                       [
+                           "improved",
+                           "adjective"
+                       ],
+                       [
+                           "improving",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "Practice helps you improve your pronunciation.",
+                          "Her improvement was easy to hear.",
+                          "The updated lesson has an improved audio track."
+                      ],
+        "question":  "Daily practice can ___ your speaking.",
+        "answer":  "improve"
+    },
+    {
+        "word":  "confident",
+        "pronunciation":  "/ËˆkÉ‘Ën.fÉ™.dÉ™nt/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Feeling sure about your abilities or knowledge.",
+        "family":  [
+                       [
+                           "confidence",
+                           "noun"
+                       ],
+                       [
+                           "confident",
+                           "adjective"
+                       ],
+                       [
+                           "confidently",
+                           "adverb"
+                       ],
+                       [
+                           "unconfident",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "She feels confident speaking with new people.",
+                          "His confidence grew after more practice.",
+                          "He answered the question confidently."
+                      ],
+        "question":  "After practicing, I feel more ___.",
+        "answer":  "confident"
+    },
+    {
+        "word":  "curious",
+        "pronunciation":  "/ËˆkjÊŠr.i.É™s/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Wanting to learn or know more about something.",
+        "level":  "beginner",
+        "family":  [
+                       [
+                           "curiosity",
+                           "noun"
+                       ],
+                       [
+                           "curious",
+                           "adjective"
+                       ],
+                       [
+                           "curiously",
+                           "adverb"
+                       ]
+                   ],
+        "sentences":  [
+                          "Curious learners ask useful questions.",
+                          "Her curiosity helped her discover a new museum.",
+                          "He looked curiously at the unusual painting."
+                      ],
+        "question":  "A person who wants to learn is ___.",
+        "answer":  "curious"
+    },
+    {
+        "word":  "prepare",
+        "pronunciation":  "/prÉªËˆper/",
+        "partOfSpeech":  "verb",
+        "definition":  "To make something or someone ready for an activity or event.",
+        "level":  "elementary",
+        "family":  [
+                       [
+                           "prepare",
+                           "verb"
+                       ],
+                       [
+                           "preparation",
+                           "noun"
+                       ],
+                       [
+                           "prepared",
+                           "adjective"
+                       ],
+                       [
+                           "unprepared",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "Please prepare your questions before the lesson.",
+                          "Good preparation makes speaking easier.",
+                          "She was prepared for the traffic."
+                      ],
+        "question":  "I need to ___ for my interview.",
+        "answer":  "prepare"
+    },
+    {
+        "word":  "recommend",
+        "pronunciation":  "/ËŒrek.É™Ëˆmend/",
+        "partOfSpeech":  "verb",
+        "definition":  "To suggest that someone or something is good or suitable.",
+        "level":  "intermediate",
+        "family":  [
+                       [
+                           "recommend",
+                           "verb"
+                       ],
+                       [
+                           "recommendation",
+                           "noun"
+                       ],
+                       [
+                           "recommended",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "What restaurant do you recommend?",
+                          "He gave me a useful recommendation.",
+                          "This book is highly recommended for learners."
+                      ],
+        "question":  "Which museum do you ___?",
+        "answer":  "recommend"
+    },
+    {
+        "word":  "perspective",
+        "pronunciation":  "/pÉšËˆspek.tÉªv/",
+        "partOfSpeech":  "noun",
+        "definition":  "A particular way of thinking about or understanding something.",
+        "level":  "upper",
+        "family":  [
+                       [
+                           "perspective",
+                           "noun"
+                       ],
+                       [
+                           "perspective-taking",
+                           "noun"
+                       ],
+                       [
+                           "perspectival",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "Travel can change your perspective.",
+                          "Try to see the problem from her perspective.",
+                          "The exhibit offers a new perspective on history."
+                      ],
+        "question":  "Everyone has a different ___ on the situation.",
+        "answer":  "perspective"
+    },
+    {
+        "word":  "reliable",
+        "pronunciation":  "/rÉªËˆlaÉª.É™.bÉ™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Able to be trusted to do what is expected.",
+        "level":  "elementary",
+        "family":  [
+                       [
+                           "rely",
+                           "verb"
+                       ],
+                       [
+                           "reliable",
+                           "adjective"
+                       ],
+                       [
+                           "reliably",
+                           "adverb"
+                       ],
+                       [
+                           "reliability",
+                           "noun"
+                       ]
+                   ],
+        "sentences":  [
+                          "We need a reliable bus service.",
+                          "She is reliable and always arrives on time.",
+                          "The app works reliably on my phone."
+                      ],
+        "question":  "A person you can trust is ___.",
+        "answer":  "reliable"
+    },
+    {
+        "word":  "decide",
+        "pronunciation":  "/dÉªËˆsaÉªd/",
+        "partOfSpeech":  "verb",
+        "definition":  "To choose something after thinking about different possibilities.",
+        "level":  "elementary",
+        "family":  [
+                       [
+                           "decide",
+                           "verb"
+                       ],
+                       [
+                           "decision",
+                           "noun"
+                       ],
+                       [
+                           "decisive",
+                           "adjective"
+                       ],
+                       [
+                           "undecided",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "We need to decide where to eat.",
+                          "That was a difficult decision.",
+                          "She gave a decisive answer."
+                      ],
+        "question":  "Have you ___ what to order?",
+        "answer":  "decided"
+    },
+    {
+        "word":  "opportunity",
+        "pronunciation":  "/ËŒÉ‘Ë.pÉšËˆtuË.nÉ™.tÌ¬i/",
+        "partOfSpeech":  "noun",
+        "definition":  "A suitable time or situation that makes it possible to do something.",
+        "level":  "intermediate",
+        "family":  [
+                       [
+                           "opportunity",
+                           "noun"
+                       ],
+                       [
+                           "opportune",
+                           "adjective"
+                       ],
+                       [
+                           "opportunist",
+                           "noun"
+                       ],
+                       [
+                           "opportunistic",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "This course is a great opportunity to practice.",
+                          "Take every opportunity to speak.",
+                          "The timing was opportune."
+                      ],
+        "question":  "Learning abroad is a valuable ___.",
+        "answer":  "opportunity"
+    },
+    {
+        "word":  "negotiate",
+        "pronunciation":  "/nÉªËˆÉ¡oÊŠ.Êƒi.eÉªt/",
+        "partOfSpeech":  "verb",
+        "definition":  "To try to reach an agreement by discussing something.",
+        "level":  "upper",
+        "family":  [
+                       [
+                           "negotiate",
+                           "verb"
+                       ],
+                       [
+                           "negotiation",
+                           "noun"
+                       ],
+                       [
+                           "negotiator",
+                           "noun"
+                       ],
+                       [
+                           "negotiable",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "They negotiated a better price.",
+                          "The negotiation lasted two hours.",
+                          "The delivery date is negotiable."
+                      ],
+        "question":  "We need to ___ a fair agreement.",
+        "answer":  "negotiate"
+    },
+    {
+        "word":  "friendly",
+        "pronunciation":  "/Ëˆfrend.li/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Kind, pleasant, and easy to talk to.",
+        "level":  "beginner",
+        "family":  [
+                       [
+                           "friend",
+                           "noun"
+                       ],
+                       [
+                           "friendly",
+                           "adjective"
+                       ],
+                       [
+                           "friendship",
+                           "noun"
+                       ],
+                       [
+                           "unfriendly",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "The barista was friendly and helpful.",
+                          "A friendly smile can start a conversation.",
+                          "Their friendship began at school."
+                      ],
+        "question":  "Our new neighbor is very ___.",
+        "answer":  "friendly"
+    },
+    {
+        "word":  "patient",
+        "pronunciation":  "/ËˆpeÉª.ÊƒÉ™nt/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Able to wait or deal with difficulty without becoming upset.",
+        "level":  "beginner",
+        "family":  [
+                       [
+                           "patience",
+                           "noun"
+                       ],
+                       [
+                           "patient",
+                           "adjective"
+                       ],
+                       [
+                           "patiently",
+                           "adverb"
+                       ],
+                       [
+                           "impatient",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "Please be patient while the bus arrives.",
+                          "She patiently explained the answer.",
+                          "Patience helps when learning a language."
+                      ],
+        "question":  "Learning a language requires ___.",
+        "answer":  "patience"
+    },
+    {
+        "word":  "comfortable",
+        "pronunciation":  "/ËˆkÊŒm.fÉš.tÌ¬É™.bÉ™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Feeling relaxed and free from discomfort.",
+        "level":  "elementary",
+        "family":  [
+                       [
+                           "comfort",
+                           "noun / verb"
+                       ],
+                       [
+                           "comfortable",
+                           "adjective"
+                       ],
+                       [
+                           "comfortably",
+                           "adverb"
+                       ],
+                       [
+                           "uncomfortable",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "This chair is comfortable.",
+                          "She feels comfortable speaking English now.",
+                          "We sat comfortably near the window."
+                      ],
+        "question":  "Please make yourself ___ and stay awhile.",
+        "answer":  "comfortable"
+    },
+    {
+        "word":  "available",
+        "pronunciation":  "/É™ËˆveÉª.lÉ™.bÉ™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Ready to be used, bought, or reached.",
+        "level":  "elementary",
+        "family":  [
+                       [
+                           "available",
+                           "adjective"
+                       ],
+                       [
+                           "availability",
+                           "noun"
+                       ],
+                       [
+                           "unavailable",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "Are there any tickets available?",
+                          "The teacher is available after class.",
+                          "Online booking shows the availability of seats."
+                      ],
+        "question":  "Is this table ___?",
+        "answer":  "available"
+    },
+    {
+        "word":  "communicate",
+        "pronunciation":  "/kÉ™ËˆmjuË.nÉ™.keÉªt/",
+        "partOfSpeech":  "verb",
+        "definition":  "To share information, ideas, or feelings with someone.",
+        "level":  "intermediate",
+        "family":  [
+                       [
+                           "communicate",
+                           "verb"
+                       ],
+                       [
+                           "communication",
+                           "noun"
+                       ],
+                       [
+                           "communicative",
+                           "adjective"
+                       ],
+                       [
+                           "communicator",
+                           "noun"
+                       ]
+                   ],
+        "sentences":  [
+                          "Good speakers communicate clearly.",
+                          "Email is one form of communication.",
+                          "She is a confident communicator."
+                      ],
+        "question":  "We use language to ___ our ideas.",
+        "answer":  "communicate"
+    },
+    {
+        "word":  "flexible",
+        "pronunciation":  "/Ëˆflek.sÉ™.bÉ™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Able to change or adapt easily to a new situation.",
+        "level":  "intermediate",
+        "family":  [
+                       [
+                           "flexible",
+                           "adjective"
+                       ],
+                       [
+                           "flexibility",
+                           "noun"
+                       ],
+                       [
+                           "inflexible",
+                           "adjective"
+                       ]
+                   ],
+        "sentences":  [
+                          "My schedule is flexible this week.",
+                          "Flexibility is useful when plans change.",
+                          "The rules are not completely inflexible."
+                      ],
+        "question":  "We need a ___ plan in case it rains.",
+        "answer":  "flexible"
+    },
+    {
+        "word":  "significant",
+        "pronunciation":  "/sÉªÉ¡ËˆnÉªf.É™.kÉ™nt/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Important or large enough to have an effect.",
+        "level":  "upper",
+        "family":  [
+                       [
+                           "significance",
+                           "noun"
+                       ],
+                       [
+                           "significant",
+                           "adjective"
+                       ],
+                       [
+                           "significantly",
+                           "adverb"
+                       ]
+                   ],
+        "sentences":  [
+                          "The lesson made a significant difference.",
+                          "The result is significant for the whole team.",
+                          "Costs have increased significantly."
+                      ],
+        "question":  "This was a ___ improvement.",
+        "answer":  "significant"
+    },
+    {
+        "word":  "subtle",
+        "pronunciation":  "/ËˆsÊŒtÌ¬.É™l/",
+        "partOfSpeech":  "adjective",
+        "definition":  "Small but important and not easy to notice.",
+        "level":  "upper",
+        "family":  [
+                       [
+                           "subtle",
+                           "adjective"
+                       ],
+                       [
+                           "subtly",
+                           "adverb"
+                       ],
+                       [
+                           "subtlety",
+                           "noun"
+                       ]
+                   ],
+        "sentences":  [
+                          "There is a subtle difference in meaning.",
+                          "Her tone subtly changed.",
+                          "Understanding cultural subtlety takes time."
+                      ],
+        "question":  "The speaker made a ___ change in tone.",
+        "answer":  "subtle"
+    }
+]
